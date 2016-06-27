@@ -4,7 +4,6 @@
 
 bin/rails generate scaffold League league_admin_id:integer name:string sport:string
 
-
 bin/rails generate scaffold Team team_admin_id:integer name:string league_id:integer city:string mascot:string primary_color:string secondary_color:string
 
 bin/rails generate scaffold Player first_name:string last_name:string jersey_number:string team_id:integer
@@ -25,10 +24,10 @@ rails generate devise:controllers LeagueAdmin
 rails generate devise:views TeamAdmin
 
 rails generate devise:controllers TeamAdmin
-
+<!--
 bin/rails generate scaffold LeagueAdmin league_id:integer email:string password:password first_name:string last_name:string
 
-bin/rails generate scaffold TeamAdmin team_id:integer email:string password:password first_name:string last_name:string
+bin/rails generate scaffold TeamAdmin team_id:integer email:string password:password first_name:string last_name:strin -->g
 
 # Join Tables (do not scaffold)
 
