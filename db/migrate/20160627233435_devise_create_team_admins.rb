@@ -6,6 +6,7 @@ class DeviseCreateTeamAdmins < ActiveRecord::Migration
       t.string :first_name,         null: false
       t.string :last_name,          null: false
 
+
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
