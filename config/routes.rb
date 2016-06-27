@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :trades
+  resources :posts
+  resources :games
+  resources :games
+  resources :players
+  resources :teams
+  resources :leagues
+  # devise_for :users, controllers: {
+  #       sessions: 'users/sessions'
+  #     }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
