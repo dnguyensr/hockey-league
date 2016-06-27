@@ -3,9 +3,8 @@ class DeviseCreateTeamAdmins < ActiveRecord::Migration
     create_table(:team_admins) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
-      t.string :first_name, null: false
-      t.string :last_name, null: false
-
+      t.string :first_name,         null: false
+      t.string :last_name,          null: false
 
       t.string :encrypted_password, null: false, default: ""
 
