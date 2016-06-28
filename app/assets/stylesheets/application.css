@@ -81,6 +81,14 @@ body {
   overflow: auto;
 }
 
+
+#third_section {
+  margin-top: 50px;
+  border: solid black 3px;
+  height: 300px;
+  overflow: auto;
+}
+
 .linebreak{
   height: 20px;
 }

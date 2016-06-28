@@ -2,22 +2,16 @@
 <h1>Home Page</h1>
 
 <section id="first_section">
-  <p>Schedule</p>
-  <% @games.each do |game| %>
-  <p>
-  <a href="games/<%= game.id %>"><%=  game.id %></a>
-  </p>
-  <% end %>
+  <div class='blog'>
+    <h3>Schedule</h3>
+    <%= render partial: 'games/schedule' %>
+  </div>
 </section>
+
 <section id="second_section">
-  <h3>News Posts</h3>
-
-  <% @posts.each do |post| %>
-  <p>
-  <a href="posts/<%= post.id %>"><%=  post.title %></a>
-  </p>
-  <% end %>
+  <div>
+    <h2> News Posts </h2>
+    <%= render partial: 'posts/recent' %>
+  </div>
 </section>
-<section id="third_section">
 
-</section>
