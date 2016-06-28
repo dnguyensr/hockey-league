@@ -27,15 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'factory_girl_rails'
 
 gem 'faker'
-<<<<<<< HEAD
 gem 'dotenv-rails'
-=======
 
 #Use simple form to create simpleforms
 gem 'simple_form'
-
-
->>>>>>> 7194047836c3709149fd32d8746e2434329c460b
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
