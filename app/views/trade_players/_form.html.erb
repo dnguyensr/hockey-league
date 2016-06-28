@@ -1,0 +1,14 @@
+<%= simple_form_for @tradeplayer do |f| %>
+  <% if @tradeplayer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tradeplayer.errors.count, "error") %> prohibited this trade_players from being saved:</h2>
+      <ul>
+      <% @tradeplayer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<% end %>
