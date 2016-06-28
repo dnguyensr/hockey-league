@@ -4,4 +4,5 @@ class TeamAdmin < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :teams
+  has_many :posts
 end
