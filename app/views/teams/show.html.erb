@@ -2,15 +2,32 @@
 #League Schedule Div
 #Sidebar
  -->
-<div class='main blog'>
-<h2> Recent Posts </h2>
-  <% @posts.each do |post|  %>
-    <div class='post-container'>
-    <b><%= post.title  %></b> <br>
-    <%=post.content  %><br><br>
+
+  <section id="first_section">
+    <div class='blog'>
+    <h2> Recent Posts </h2>
+      <% @posts.each do |post|  %>
+        <div class='post-container'>
+        <b><%= post.title  %></b> <br>
+        <%=post.content  %><br><br>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+    </section>
+  <section id="second_section">
+    <h2>Schedule</h2>
+    <div class='blog'>
+    <h2> Recent Games </h2>
+      <% @games.each do |game|  %>
+        <div class='game-container'>
+        <b><%= game.game_date  %></b> <br>
+        </div>
+      <% end %>
+    </div>
+  </section>
+  <section id="third_section">
+  </section>
+
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

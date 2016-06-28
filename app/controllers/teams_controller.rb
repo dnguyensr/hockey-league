@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @posts = Post.filter_by_team(params[:id])
+    @games = Game.filter_by_team(params[:id])
   end
 
   # GET /teams/new
