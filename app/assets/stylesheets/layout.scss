@@ -1,0 +1,55 @@
+$header-height: 100px;
+
+body {
+  width: 50%;
+  margin: auto;
+  // Does not work!
+  background-color: black;
+}
+
+#inside {
+  background-color: white;
+  padding: 50px;
+}
+
+.header {
+  height: $header-height;
+  padding-top: -50px;
+}
+
+.header img {
+  width: 100px;
+  height: $header-height;
+  float: left;
+}
+
+.header h1 {
+  color: black;
+  position: relative;
+  top: 40px;
+  left:-50px;
+  font-size: 5em;
+  text-align: center;
+  text-shadow: 4px 4px 1px #FFFFFF,
+               0px 0px 6px rgba(255,255,255,0.7),
+               0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.header a:hover {
+  color: black;
+}
+
+nav {
+  float: right;
+  margin-top: 20px;
+  text-align: center;
+  height: 50px;
+}
+
+nav a {
+  color: black;
+  padding: 10px;
+  text-decoration: underline;
+}
