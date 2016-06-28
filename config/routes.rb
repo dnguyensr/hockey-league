@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :league_admins
-  devise_for :team_admins
-  resources :trades
-  resources :posts
-  resources :games
+  root 'leagues#index'
+
+  # devise_for :league_admins
+
+  devise_for :league_admins, controllers: { sessions: 'league_admin/sessions' }
+
+  devise_for :team_admins, :skip => [ :registrations, :passwords ]
+  resources :trades, :except => [ :index, :edit, :update, :delete ]
+  resources :posts, :except => [ :index ]
   resources :games
   resources :players
   resources :teams
-  resources :leagues
+  # resources :leagues
+
   # devise_for :users, controllers: {
   #       sessions: 'users/sessions'
   #     }
