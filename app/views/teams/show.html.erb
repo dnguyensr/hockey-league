@@ -1,39 +1,11 @@
-<p id="notice"><%= notice %></p>
+#News Div
+#League Schedule Div
+#Sidebar
 
-<p>
-  <strong>Team admin:</strong>
-  <%= @team.team_admin_id %>
-</p>
+<div class='main'>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
 
-<p>
-  <strong>League:</strong>
-  <%= @team.league_id %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @team.city %>
-</p>
-
-<p>
-  <strong>Mascot:</strong>
-  <%= @team.mascot %>
-</p>
-
-<p>
-  <strong>Primary color:</strong>
-  <%= @team.primary_color %>
-</p>
-
-<p>
-  <strong>Secondary color:</strong>
-  <%= @team.secondary_color %>
-</p>
+</div>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
