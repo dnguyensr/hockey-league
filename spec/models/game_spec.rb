@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Game, type: :model do
-  let(:game) { Game.create(away_team_id: 1, home_team_id: 2, date_time: "2016-07-03 07:55:40") }
-
   describe '#setup' do
 
     it 'has an away team id' do
+      away_team = instance_double("Team", :id => 1)
+      home_team = instance_double("Team", :id => 2)
+      Game.create(away_team_id: away_team.id, home_team_id: home_team.id, date_time: "2016-07-03 07:55:40")
+
       expect(game.away_team_id).to eq 1
     end
 
