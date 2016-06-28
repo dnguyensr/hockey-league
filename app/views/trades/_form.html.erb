@@ -1,8 +1,7 @@
-<%= form_for(@trade) do |f| %>
+<%= simple_form_for @trade do |f| %>
   <% if @trade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
-
       <ul>
       <% @trade.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,19 +10,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :proposing_team_id %><br>
-    <%= f.number_field :proposing_team_id %>
-  </div>
-  <div class="field">
-    <%= f.label :accepting_team_id %><br>
-    <%= f.number_field :accepting_team_id %>
-  </div>
-  <div class="field">
-    <%= f.label :accepted %><br>
-    <%= f.check_box :accepted %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.association :proposing_team %>
+  <%= f.association :accepting_team %>
+
 <% end %>

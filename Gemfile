@@ -30,6 +30,10 @@ gem 'factory_girl_rails'
 
 gem 'faker'
 
+#Use simple form to create simpleforms
+gem 'simple_form'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
