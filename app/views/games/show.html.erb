@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<section id="game_section">
+  <div class="inner_container"></div>
+    <div><strong>Game starts at <%= @game.game_time %> on <%= @game.game_date.month %>/<%= @game.game_date.day %>/<%= @game.game_date.year %></strong></div>
+    <div class="linebreak"></div>
 
-<p>
-  <strong>Team game:</strong>
-  <%= @game.team_game_id %>
-</p>
+    <div class="left">
+      <div><strong>Away Team</strong></div>
+      <div><%= @game.away_team.city %> <%= @game.away_team.name %></div>
+    </div>
+    <span>vs</span>
 
-<p>
-  <strong>Game date:</strong>
-  <%= @game.game_date %>
-</p>
+    <div class="right">
+      <div><strong>Home Team</strong></div>
+      <div><%= @game.home_team.city%> <%= @game.home_team.name%></div>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Game time:</strong>
-  <%= @game.game_time %>
-</p>
+
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
