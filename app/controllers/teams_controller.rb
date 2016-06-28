@@ -25,6 +25,10 @@ class TeamsController < ApplicationController
   def edit
   end
 
+  def league_team_edit
+
+  end
+
   # POST /teams
   # POST /teams.json
   def create
