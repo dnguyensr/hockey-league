@@ -36,8 +36,10 @@
 }
 
 nav {
+/*  background-color: darkblue;*/
   margin-top: 20px;
   text-align: center;
+  height: 50px;
 }
 
 nav a {

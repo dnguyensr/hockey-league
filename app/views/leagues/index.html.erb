@@ -1,31 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Leagues</h1>
+<h1>Home Page</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>League admin</th>
-      <th>Name</th>
-      <th>Sport</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section id="first_section">
+  <p>Schedule</p>
+</section>
+<section id="second_section">
+  <p>News/Trades</p>
+</section>
+<section id="third_section">
 
-  <tbody>
-    <% @leagues.each do |league| %>
-      <tr>
-        <td><%= league.league_admin_id %></td>
-        <td><%= league.name %></td>
-        <td><%= league.sport %></td>
-        <td><%= link_to 'Show', league %></td>
-        <td><%= link_to 'Edit', edit_league_path(league) %></td>
-        <td><%= link_to 'Destroy', league, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New League', new_league_path %>
+</section>
