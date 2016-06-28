@@ -17,8 +17,10 @@
           <td><%= game.date_time.strftime('%m/%d/%y') %></td>
           <td><%= game.date_time.strftime('%H:%M') %></td>
           <td><%= link_to 'Game Info', game %></td>
-          <td><%= link_to 'Edit', edit_game_path(game) %></td>
-          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if team_admin_signed_in? %>
+            <td><%= link_to 'Edit', edit_game_path(game) %></td>
+            <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
 </table>
