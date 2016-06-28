@@ -7,6 +7,9 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use bourbon and neat for SCSS
+gem 'bourbon'
+gem 'neat'
 gem 'devise', '3.5.10'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

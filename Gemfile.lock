@@ -41,6 +41,9 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bourbon (4.2.7)
+      sass (~> 3.4)
+      thor (~> 0.19)
     builder (3.2.2)
     byebug (9.0.5)
     capybara (2.7.1)
@@ -96,6 +99,9 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    neat (1.8.0)
+      sass (>= 3.3)
+      thor (~> 0.19)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -200,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   byebug
   capybara
   devise (= 3.5.10)
@@ -208,6 +215,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  neat
   pg (~> 0.15)
   pry-rails
   rails (= 4.2.6)
