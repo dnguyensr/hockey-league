@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
 
 
   def self.filter_by_team(team_id)
-    where(team: team_id).order("created_at DESC").limit(5)
+    where("home_team_id = ? or away_team_id =?", team_id, team_id).order("created_at DESC").limit(12)
   end
 
   def home_team

@@ -2,7 +2,7 @@
 #League Schedule Div
 #Sidebar
  -->
-
+<h1> <%=@team.name  %> </h1>
   <section id="first_section">
     <div class='blog'>
     <h2> Recent Posts </h2>
@@ -15,14 +15,26 @@
     </div>
     </section>
   <section id="second_section">
-    <h2>Schedule</h2>
     <div class='blog'>
     <h2> Recent Games </h2>
-      <% @games.each do |game|  %>
-        <div class='game-container'>
-        <b><%= game.game_date  %></b> <br>
-        </div>
-      <% end %>
+      <table style="width:100%">
+        <tr>
+            <td width="15%"><b>  Date </b> </td>
+            <td width="10%"><b>  Time </b>
+            <td width="30%"><b>  Home Team </b></td>
+            <td width="30%"><b>  Away Team  </b></td></b>
+        </tr>
+        <% @games.each do |game|  %>
+          <div class='game-container'>
+            <tr>
+              <td width="15%"> <%= game.game_date  %></td>
+              <td width="10%"> <%= game.game_time %>
+              <td width="30%"> <%=game.home_team.name  %> </td>
+              <td width="30%"> <%=game.away_team.name  %>
+            </tr>
+          </div>
+        <% end %>
+      </table>
     </div>
   </section>
   <section id="third_section">
