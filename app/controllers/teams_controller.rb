@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @title = Team.find(params[:id]).name
   end
 
   # GET /teams/new

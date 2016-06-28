@@ -65,10 +65,12 @@ body {
   height: 300px;
   margin-bottom: 50px;
   margin-top: 50px;
+  overflow: auto;
 }
 
 #second_section {
   border: solid black 3px;
   height: 300px;
+  overflow: auto;
 }
 

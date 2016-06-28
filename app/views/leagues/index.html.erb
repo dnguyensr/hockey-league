@@ -3,9 +3,20 @@
 
 <section id="first_section">
   <p>Schedule</p>
+  <% @games.each do |game| %>
+  <p>
+  <a href="games/<%= game.id %>"><%=  game.id %></a>
+  </p>
+  <% end %>
 </section>
 <section id="second_section">
-  <p>News/Trades</p>
+  <h3>News Posts</h3>
+
+  <% @posts.each do |post| %>
+  <p>
+  <a href="posts/<%= post.id %>"><%=  post.title %></a>
+  </p>
+  <% end %>
 </section>
 <section id="third_section">
 
