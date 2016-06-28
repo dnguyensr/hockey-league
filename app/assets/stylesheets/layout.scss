@@ -1,8 +1,8 @@
 $header-height: 100px;
 
 body {
-  background-color: #263238;
-  width: 50%;
+  background-color: #455A64;
+  width: 70%;
   margin: auto;
 }
 
@@ -23,7 +23,7 @@ body {
 }
 
 .header h1 {
-  color: #37474F;
+  color: #000;
   position: relative;
   top: 40px;
   left:-50px;
@@ -36,10 +36,6 @@ body {
                0px 18px 23px rgba(0,0,0,0.1);
 }
 
-.header a:hover {
-  color: black;
-}
-
 nav {
   float: right;
   margin-top: 20px;
@@ -48,7 +44,8 @@ nav {
 }
 
 nav a {
-  color: black;
+  color: #546E7A;
   padding: 10px;
-  text-decoration: underline;
+  text-decoration: none;
+  font-size: 14px;
 }
