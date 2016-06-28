@@ -16,8 +16,10 @@
       </div>
     </div>
   </section>
-  <%= link_to 'Edit', edit_game_path(@game) %> |
-  <%= link_to 'Back', games_path %>
+  <% if league_admin_signed_in? %>
+    <%= link_to 'Edit', edit_game_path(@game) %> |
+    <%= link_to 'Back', games_path %>
+  <% end %>
 </div>
 
 
