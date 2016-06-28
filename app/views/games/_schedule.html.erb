@@ -17,7 +17,7 @@
           <td><%= game.date_time.month %>/<%= game.date_time.day %>/<%= game.date_time.year %></td>
           <td><%= game.date_time.hour %>:<%= game.date_time.min%></td>
           <td><%= link_to 'Game Info', game %></td>
-          <% if team_admin_signed_in? %>
+          <% if league_admin_signed_in? %>
             <td><%= link_to 'Edit', edit_game_path(game) %></td>
             <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>

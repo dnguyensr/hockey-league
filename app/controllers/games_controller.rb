@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_team_admin!, except: [:show, :index]
+  before_action :authenticate_league_admin!, except: [:show, :index]
 
   # GET /games
   # GET /games.json
