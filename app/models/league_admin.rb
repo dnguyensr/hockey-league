@@ -5,4 +5,6 @@ class LeagueAdmin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :leagues
 
+
+
 end
