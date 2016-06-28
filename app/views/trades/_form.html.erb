@@ -1,4 +1,4 @@
-<%= simple_form_for @trade do |f| %>
+<%= simple_form_for @trade, input_html: { class: 'new_trade' }   do |f| %>
   <% if @trade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
@@ -10,7 +10,8 @@
     </div>
   <% end %>
 
-  <%= f.association :proposing_team %>
-  <%= f.association :accepting_team %>
+  <%= f.association :proposing_team, input_html: {class: 'proposing_team_trade'} %>
+  <%= f.association :accepting_team, input_html: {class: 'accepting_team_trade'}%>
+  <%= f.submit %>
 
 <% end %>

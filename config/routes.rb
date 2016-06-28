@@ -3,14 +3,15 @@ Rails.application.routes.draw do
 
   # devise_for :league_admins
 
-  devise_for :league_admins, controllers: { sessions: 'league_admin/sessions' }
+  devise_for :league_admins, controllers: { sessions: 'league_admin/sessions', registrations: 'league_admin/registrations' }
 
-  devise_for :team_admins, :skip => [ :registrations, :passwords ]
+  devise_for :team_admins, :skip => [ :registrations, :passwords ], controllers: { sessions: 'team_admin/sessions', registrations: 'team_admin/registrations' }
   resources :trades, :except => [ :index, :edit, :update, :delete ]
   resources :posts, :except => [ :index ]
   resources :games
   resources :players
   resources :teams
+  resources :trade_players
   # resources :leagues
 
   # devise_for :users, controllers: {
