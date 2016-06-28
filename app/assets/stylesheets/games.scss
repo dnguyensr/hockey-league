@@ -1,3 +1,32 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$section-height: 300px;
+
+.linebreak{
+  height: 20px;
+}
+
+.left {
+  display: inline-block;
+  padding-right: 5em;
+}
+
+#game_section {
+  border: solid black 3px;
+  height: $section-height;
+  margin-bottom: 5em;
+  margin-top: 5em;
+  margin:auto;
+  text-align: center;
+}
+
+section span {
+  display: inline-block;
+}
+
+.right {
+  display: inline-block;
+  padding-left: 5em;
+}
