@@ -6,40 +6,14 @@
   <section id="first_section">
     <div class='blog'>
     <h2> Recent Posts </h2>
-      <% @posts.each do |post|  %>
-        <div class='post-container'>
-        <b><%= post.title  %></b> <br>
-        <%=post.content  %><br><br>
-        </div>
-      <% end %>
+    <%= render partial: 'posts/recent' %>
     </div>
     </section>
   <section id="second_section">
     <div class='blog'>
     <h2> Recent Games </h2>
-      <table style="width:100%">
-        <tr>
-            <td width="15%"><b>  Date </b> </td>
-            <td width="10%"><b>  Time </b>
-            <td width="30%"><b>  Home Team </b></td>
-            <td width="30%"><b>  Away Team  </b></td></b>
-        </tr>
-        <% @games.each do |game|  %>
-          <div class='game-container'>
-            <tr>
-              <td width="15%"> <%= game.game_date  %></td>
-              <td width="10%"> <%= game.game_time %>
-              <td width="30%"> <%=game.home_team.name  %> </td>
-              <td width="30%"> <%=game.away_team.name  %>
-            </tr>
-          </div>
-        <% end %>
-      </table>
+      <%= render partial: 'games/schedule' %>
     </div>
   </section>
-  <section id="third_section">
-  </section>
 
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
