@@ -4,29 +4,28 @@
 
 $section-height: 300px;
 
-.linebreak{
+.linebreak {
   height: 20px;
 }
 
 .left {
   display: inline-block;
-  padding-right: 5em;
-}
-
-#game_section {
-  border: solid black 3px;
-  height: $section-height;
-  margin-bottom: 5em;
-  margin-top: 5em;
-  margin:auto;
-  text-align: center;
-}
-
-section span {
-  display: inline-block;
+  padding-right: 4em;
 }
 
 .right {
   display: inline-block;
-  padding-left: 5em;
+  padding-left: 4em;
+}
+
+#game_section {
+  border: solid #37474F 3px;
+  height: $section-height;
+  margin-bottom: 5em;
+  margin-top: 5em;
+  text-align: center;
+}
+
+#vs {
+  display: inline-block;
 }

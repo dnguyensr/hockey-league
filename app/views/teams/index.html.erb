@@ -1,4 +1,4 @@
-<h1>Listing Teams</h1>
+<h1>All Teams</h1>
 
 <div id="inside">
   <p id="notice"><%= notice %></p>
@@ -21,7 +21,7 @@
       <% @teams.each do |team| %>
         <tr>
           <td><%= team.team_admin_id %></td>
-          <td><%= team.name %></td>
+          <td><a href="/teams/<%= team.id %>"><%= team.name %></a></td>
           <td><%= team.league_id %></td>
           <td><%= team.city %></td>
           <td><%= team.mascot %></td>
