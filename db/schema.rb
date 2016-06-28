@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20160627233442) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer  "team_game_id"
+    t.integer  "away_team_id"
+    t.integer  "home_team_id"
     t.date     "game_date"
     t.time     "game_time"
     t.datetime "created_at",   null: false
@@ -89,14 +90,6 @@ ActiveRecord::Schema.define(version: 20160627233442) do
 
   add_index "team_admins", ["email"], name: "index_team_admins_on_email", unique: true, using: :btree
   add_index "team_admins", ["reset_password_token"], name: "index_team_admins_on_reset_password_token", unique: true, using: :btree
-
-  create_table "team_games", force: :cascade do |t|
-    t.integer  "away_team_id"
-    t.integer  "home_team_id"
-    t.integer  "game_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
 
   create_table "teams", force: :cascade do |t|
     t.integer  "team_admin_id"
