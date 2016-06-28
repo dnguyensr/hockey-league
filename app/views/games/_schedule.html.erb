@@ -1,24 +1,25 @@
 <table>
   <thead>
     <tr>
-            <th>Away Team</th>
-            <th></th>
-            <th>Home Team</th>
-            <th>Game date</th>
-            <th>Game time</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+      <th>Away Team</th>
+      <th></th>
+      <th>Home Team</th>
+      <th>Game date</th>
+      <th>Game time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 <% @games.each do |game| %>
-        <tr>
-          <td><%= game.away_team.city %> <%= game.away_team.name %></td>
-          <td>at</td>
-          <td><%= game.home_team.city %> <%= game.home_team.name%></td>
-          <td><%= game.date_time.month %>/<%= game.date_time.day %>/<%= game.date_time.year %></td>
-          <td><%= game.date_time.hour %>:<%= game.date_time.min%></td>
-          <td><%= link_to 'Game Info', game %></td>
-          <td><%= link_to 'Edit', edit_game_path(game) %></td>
-          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
+    <tr>
+      <td><%= game.away_team.city %> <%= game.away_team.name %></td>
+      <td>at</td>
+      <td><%= game.home_team.city %> <%= game.home_team.name%></td>
+      <td><%= game.date_time.month %>/<%= game.date_time.day %>/<%= game.date_time.year %></td>
+      <td><%= game.date_time.hour %>:<%= game.date_time.min%></td>
+      <td><%= link_to 'Game Info', game %></td>
+      <td><%= link_to 'Edit', edit_game_path(game) %></td>
+      <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
 </table>
+

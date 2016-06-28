@@ -1,3 +1,26 @@
 // Place all the styles related to the Leagues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$section-height: 300px;
+
+#first_section {
+  border: solid black 3px;
+  height: $section-height;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  overflow: auto;
+}
+
+#second_section {
+  border: solid black 3px;
+  height: $section-height;
+  overflow: auto;
+}
+
+#third_section {
+  margin-top: 50px;
+  border: solid black 3px;
+  height: $section-height;
+  overflow: auto;
+}
