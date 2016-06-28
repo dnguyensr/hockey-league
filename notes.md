@@ -1,6 +1,11 @@
+# wireframe
+  * League View: https://wireframe.cc/NU4hyo
+  * League Admin View: https://wireframe.cc/808Hf0
+  * Team View: https://wireframe.cc/Md8VPt
+  * Team Admin View: https://wireframe.cc/fO3kUL
+  * Trade View: https://wireframe.cc/CN3ruU
+
 # Scaffolding
-
-
 
 bin/rails generate scaffold League league_admin_id:integer name:string sport:string
 
