@@ -7,18 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div id='inside'>
   <section class="header">
-    <img src="assets/05_NHL_Shield.svg.png" alt="logo" />
-    <h1>NHL</h1>
+    <a href="/"><img src="/assets/05_NHL_Shield.svg.png" alt="logo" /></a>
+    <a href="/" style="text-decoration: none;"><h1>NHL</h1></a>
   </section>
   <nav>
-    <a href='/leagues'>Home</a>
+    <a href='/'>Home</a>
     <a href='/teams'>Teams</a>
     <a href='/games'>Schedule</a>
-    <a href='/league_admins/sign_in'>Login</a>
+    <% if league_admin_signed_in? %>
+      <%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %>
+    <% else %>
+      <%= link_to('Login', new_league_admin_session_path)  %>
+      <%= link_to('Register', new_league_admin_registration_path) %>
+    <% end %>
   </nav>
-
 <%= yield %>
 </div>
 </body>

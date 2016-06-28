@@ -14,12 +14,10 @@
  *= require_self
  */
 
-
 .header {
   height: 100px;
   padding-top: -50px;
 }
-
 
 .header img {
   width: 100px;
@@ -28,36 +26,45 @@
 }
 
 .header h1 {
+  color: black;
   position: relative;
   top: 40px;
   left:-50px;
   font-size: 5em;
   text-align: center;
+  text-shadow: 4px 4px 1px #FFFFFF,
+               0px 0px 6px rgba(255,255,255,0.7),
+               0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.header a:hover {
+  color: black;
 }
 
 nav {
-/*  background-color: darkblue;*/
+  float: right;
   margin-top: 20px;
   text-align: center;
   height: 50px;
 }
 
 nav a {
-  padding: 20px;
+  color: black;
+  padding: 10px;
   text-decoration: underline;
 }
 
 body {
   width: 50%;
   margin: auto;
-  background-color: lightblue;
+  background-color: #4C4C4C;
 }
 
 #inside {
   background-color: white;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 0;
+  padding: 50px;
 }
 
 #first_section {
