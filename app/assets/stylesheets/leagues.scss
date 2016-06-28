@@ -2,25 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$section-border: solid #37474F 2px;
 $section-height: 300px;
+$section-padding: 0px 20px 10px 20px;
 
 #first_section {
-  border: solid black 3px;
+  border: $section-border;
   height: $section-height;
   margin-bottom: 50px;
-  margin-top: 50px;
   overflow: auto;
+  padding: $section-padding;
 }
 
 #second_section {
-  border: solid black 3px;
+  border: $section-border;
   height: $section-height;
   overflow: auto;
+  padding: $section-padding;
 }
 
 #third_section {
   margin-top: 50px;
-  border: solid black 3px;
+  border: $section-border;
   height: $section-height;
   overflow: auto;
+  padding: $section-padding;
 }
