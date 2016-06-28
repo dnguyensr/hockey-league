@@ -1,15 +1,43 @@
 <h1>Home Page</h1>
 
+<% if league_admin_signed_in?  %>
+  <section id="first_section"
+<% else  %>
 <section id="first_section">
-  <div class='blog'>
-    <h3>Schedule</h3>
-    <%= render partial: 'games/schedule' %>
-  </div>
+  <ul class="w3-navbar">
+    <li><a href="#" onclick="openCity('London')">Edit Homepage</a></li>
+    <li><a href="#" onclick="openCity('Paris')">Add Team</a></li>
+    <li><a href="#" onclick="openCity('Tokyo')">Edit Team</a></li>
+  </ul>
+<div id="London" class="city">
+  <h2>London</h2>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="city">
+  <h2>Paris</h2>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="city">
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
 </section>
 
-<section id="second_section">
-  <div>
-    <h2>News Posts</h2>
-    <%= render partial: 'posts/recent' %>
-  </div>
-</section>
+
+
+  <section id="first_section">
+    <div class='blog'>
+      <h3>Schedule</h3>
+      <%= render partial: 'games/schedule' %>
+    </div>
+  </section>
+
+  <section id="second_section">
+    <div>
+      <h2>News Posts</h2>
+      <%= render partial: 'posts/recent' %>
+    </div>
+  </section>
+<% end  %>

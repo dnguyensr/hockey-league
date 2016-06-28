@@ -200,8 +200,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
-  coffee-rails (~> 4.1.0)
-
   devise (= 3.5.10)
   dotenv-rails
   factory_girl_rails
