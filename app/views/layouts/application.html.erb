@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id='inside'>
+  <section class="header">
+    <img src="assets/05_NHL_Shield.svg.png" alt="logo" />
+    <h1>NHL eague</h1>
+  </section>
+  <nav>
+    <a>Home</a>
+    <a>Teams</a>
+    <a>Schedule</a>
+    <a>Login</a>
+  </nav>
+  <section id="first_section">
+  <p>Schedule</p>
+  </section>
+  <section id="second_section">
+  <p>News/Trades</p>
+  </section>
+  <section id="third_section">
+
+  </section>
 
 <%= yield %>
-
+</div>
 </body>
 </html>
