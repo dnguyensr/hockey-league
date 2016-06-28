@@ -1,13 +1,24 @@
 <p id="notice"><%= notice %></p>
-
+<h1> Potential Trade </h1>
 <p>
   <strong>Proposing team:</strong>
-  <%= @trade.proposing_team_id %>
-</p>
+  <%= @trade.proposing_team.name %>
+  <% @trade.proposing_team.players.each do |player|%> <br>
+  <%= player.first_name %> <%=player.last_name %>
+  <% end %>
 
+  <div>
+    <%= render partial: 'trade_players/form' %>
+  </div>
+</p>
 <p>
   <strong>Accepting team:</strong>
-  <%= @trade.accepting_team_id %>
+  <%= @trade.accepting_team.name %>
+  <p> Players </p>
+  <%= @trade.accepting_team.name %>
+  <% @trade.accepting_team.players.each do |player|  %><br>
+  <%= player.first_name %> <%=player.last_name %>
+  <% end %>
 </p>
 
 <p>
@@ -15,5 +26,4 @@
   <%= @trade.accepted %>
 </p>
 
-<%= link_to 'Edit', edit_trade_path(@trade) %> |
-<%= link_to 'Back', trades_path %>
+

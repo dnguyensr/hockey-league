@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :games
   resources :players
   resources :teams
+  resources :trade_players
   # resources :leagues
 
   # devise_for :users, controllers: {
