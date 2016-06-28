@@ -76,11 +76,10 @@
 <part>id</part>
 </key>
 </table>
-<table x="511" y="244" name="teams">
+<table x="495" y="250" name="teams">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="team_admins" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
@@ -94,23 +93,35 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="leagues" row="id" />
 </row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>DATETIME</datatype>
-<default>NULL</default></row>
+<row name="team_admin_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="team_admins" row="id" />
+</row>
 <row name="secondary_color" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
 <row name="primary_color" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
+<row name="created_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="124" y="324" name="games">
+<table x="261" y="451" name="games">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="home_team_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="teams" row="id" />
+</row>
+<row name="away_team_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="teams" row="id" />
+</row>
 <row name="game_date" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
@@ -165,26 +176,6 @@
 <part>id</part>
 </key>
 </table>
-<table x="269" y="444" name="team_games">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="team_home_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="teams" row="id" />
-</row>
-<row name="team_away_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="teams" row="id" />
-</row>
-<row name="game_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="games" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
 <table x="278" y="246" name="posts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
@@ -228,7 +219,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="974" y="331" name="trade_players">
+<table x="973" y="389" name="trade_players">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
