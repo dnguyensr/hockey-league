@@ -14,57 +14,85 @@ LeagueAdmin.create({
   })
 
 League.create({
-  admin_id:     1
-  league_name:  "NHL"
-  sport:        "Hockey"
+  league_admin_id:  1,
+  name:             "NHL",
+  sport:            "Hockey"
   })
-
-4.times do
-  Team.create({
-    name:         Faker::StarWars.specie + 's',
-    city:         Faker::Address.city,
-    mascot:       Faker::StarWars.specie,
-    league_id:    1,
-    })
-end
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
   email:        "abc@abc.com",
-  password:     "password",
-  team_id:      1
+  password:     "password"
   })
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
-  email:        Faker::Internet.email,
-  password:     "password",
-  team_id:      2
+  email:        "123@123.com",
+  password:     "password"
   })
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
-  email:        Faker::Internet.email,
-  password:     "password",
-  team_id:      3
+  email:        "xyz@xyz.com",
+  password:     "password"
   })
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
-  email:        Faker::Internet.email,
-  password:     "password",
-  team_id:      4
+  email:        "yes@yes.com",
+  password:     "password"
+  })
+
+Team.create({
+  team_admin_id:  1,
+  name:           Faker::StarWars.specie + 's',
+  league_id:      1,
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
+  team_admin_id:  2,
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
+  team_admin_id:  3,
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
+  team_admin_id:  4,
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
   })
 
 30.times do
   Player.create({
-    first_name:   Faker::Name.first_name,
-    last_name:    Faker::Name.last_name,
-    team_id:      rand(1..Team.count)
+    first_name:     Faker::Name.first_name,
+    last_name:      Faker::Name.last_name,
+    jersey_number:  rand(0..99).to_s,
+    team_id:        rand(1..Team.count)
     })
 end
 
@@ -72,6 +100,7 @@ end
   Post.create({
     title:        Faker::StarWars.quote,
     content:      Faker::StarWars.quote,
+    author_id:    rand(1..TeamAdmin.count),
     team_id:      rand(1..Team.count)
     })
 end
@@ -80,6 +109,8 @@ game_times = %w(1800 1900 2000 2100 2200)
 
 50.times do
   Game.create({
+    away_team_id: rand(1..Team.count),
+    home_team_id: rand(1..Team.count),
     game_date:    Faker::Date.forward(50),
     game_time:    game_times[rand(0..4)]
     })
