@@ -1,14 +1,14 @@
 <table>
   <thead>
     <tr>
-            <th>Away Team</th>
-            <th></th>
-            <th>Home Team</th>
-            <th>Game date</th>
-            <th>Game time</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+      <th>Away Team</th>
+      <th></th>
+      <th>Home Team</th>
+      <th>Game date</th>
+      <th>Game time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 <% @games.each do |game| %>
         <tr>
           <td><%= game.away_team.city %> <%= game.away_team.name %></td>
@@ -24,3 +24,4 @@
         </tr>
       <% end %>
 </table>
+
