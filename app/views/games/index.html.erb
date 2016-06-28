@@ -1,31 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Games</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Team game</th>
-      <th>Game date</th>
-      <th>Game time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.team_game_id %></td>
-        <td><%= game.game_date %></td>
-        <td><%= game.game_time %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Game', new_game_path %>
+<h1>Game Schedule</h1>
+<section>
+  <%= render partial: 'games/schedule' %>
+</section>
