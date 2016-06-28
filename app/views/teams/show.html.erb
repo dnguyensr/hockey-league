@@ -1,10 +1,15 @@
-#News Div
+<!-- News Div
 #League Schedule Div
 #Sidebar
-
-<div class='main'>
-
-
+ -->
+<div class='main blog'>
+<h2> Recent Posts </h2>
+  <% @posts.each do |post|  %>
+    <div class='post-container'>
+    <b><%= post.title  %></b> <br>
+    <%=post.content  %><br><br>
+    </div>
+  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
