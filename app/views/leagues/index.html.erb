@@ -1,15 +1,28 @@
 <h1>Home Page</h1>
 
-<h2>Schedule</h1>
-<section id="first_section">
-  <div class='blog'>
-    <%= render partial: 'games/schedule' %>
-  </div>
+<% if league_admin_signed_in?  %>
+  <section id="first_section"
+  <ul class="w3-navbar">
+    <li><%= link_to 'Edit Homepage', root_path %></li>
+    <li><%= link_to 'Add Team', new_team_path %></li>
+    <!-- edit_team_path does not work because no reference to team #, need to make landing page to choose team -->
+    <li><%= link_to 'Add Game', new_game_path %></li>
+    <li><%= link_to 'Edit Game', games_path %></li>
+  </ul>
 </section>
+<% else  %>
 
-<h2>News Posts</h1>
-<section id="second_section">
-  <div>
-    <%= render partial: 'posts/recent' %>
-  </div>
-</section>
+<h2>Schedule</h2>
+  <section id="first_section">
+    <div class='blog'>
+      <%= render partial: 'games/schedule' %>
+    </div>
+  </section>
+
+<h2>News Posts</h2>
+  <section id="second_section">
+    <div>
+      <%= render partial: 'posts/recent' %>
+    </div>
+  </section>
+<% end  %>
