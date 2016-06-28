@@ -105,13 +105,10 @@ end
     })
 end
 
-game_times = %w(1800 1900 2000 2100 2200)
-
 50.times do
   Game.create({
     away_team_id: rand(1..Team.count),
     home_team_id: rand(1..Team.count),
-    game_date:    Faker::Date.forward(50),
-    game_time:    game_times[rand(0..4)]
+    date_time:    Faker::Time.forward(20, :evening)
     })
 end
