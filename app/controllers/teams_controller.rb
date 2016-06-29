@@ -15,8 +15,8 @@ class TeamsController < ApplicationController
   def show
     @posts = Post.filter_by_team(params[:id])
     @games = Game.filter_by_team(params[:id])
-    @reviewabletrades = Trade.where(accepting_team: @team.id)
-    @proposedtrades = Trade.where(proposing_team: @team.id)
+    @reviewabletrades = Trade.where(accepting_team: @team.id).where(accepted: nil)
+    @proposedtrades = Trade.where(proposing_team: @team.id).where(accepted: nil)
   end
 
   # GET /teams/new
