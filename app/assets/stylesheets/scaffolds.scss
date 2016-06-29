@@ -1,14 +1,6 @@
-body {
-  font-family: 'Lucida Grande';
-  font-size: 12px;
-  line-height: 18px;
-}
-
 p, ol, ul, td {
-  font-family: 'Lucida Grande';
-  font-size: 12px;
-  line-height: 18px;
-  font-color: #263238;
+  font-size: 14px;
+  font-color: #000;
 }
 
 pre {
@@ -18,15 +10,17 @@ pre {
 }
 
 a {
-  color: #546E7A;
+  color: #000;
   text-decoration: none;
+  font-family: 'Oxygen', sans-serif;
 
   &:visited {
-    color: #607D8B;
+    color: #37474F;
   }
 
   &:hover {
-    color: #000;
+    color: #455A64;
+    text-decoration: none;
   }
 }
 
@@ -38,6 +32,7 @@ div {
 
 #notice {
   color: green;
+  font-size: 16px;
 }
 
 .field_with_errors {
