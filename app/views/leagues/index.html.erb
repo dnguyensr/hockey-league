@@ -4,7 +4,8 @@
 <% if league_admin_signed_in?  %>
 
   <section id="first_section">
-    Managers awaiting approval:
+  <div>
+    <strong>Managers awaiting approval:</strong>
       <table>
         <% @teamadmins.each do |teamadmin| %>
           <tr>
@@ -14,17 +15,18 @@
           </tr>
       </table>
     <% end %>
-    <%= link_to 'Edit Homepage', root_path %><br>
-    <%= link_to 'Add Team', new_team_path %><br>
-      <!-- edit_team_path does not work because no reference to team #, need to make landing page to choose team -->
-    <%= link_to 'Add Game', new_game_path %><br>
-    <%= link_to 'Edit Game', games_path %><br>
-
+    </div>
+    <div class="linebreak"></div>
+    <ul>
+      <li><%= link_to 'Add Team', new_team_path %></li>
+      <li><%= link_to 'Add Game', new_game_path %></li>
+      <li><%= link_to 'Edit Game', games_path %></li>
+    </ul>
   </section>
 
 <% end  %>
 
-<h2>Schedule</h2>
+<h2><%= link_to 'Upcoming Games', games_path %></h2>
   <section id="second_section">
     <div class='blog'>
       <%= render partial: 'games/schedule' %>
