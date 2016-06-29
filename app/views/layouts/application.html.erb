@@ -19,6 +19,8 @@
     <a href='/games'>Schedule</a>
     <% if league_admin_signed_in? %>
       <%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %>
+    <% else %>
+      <%= link_to('Login', new_league_admin_session_path ) %>
     <% end %>
   </nav>
 <%= yield %>

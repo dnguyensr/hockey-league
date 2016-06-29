@@ -7,3 +7,4 @@ class Trade < ActiveRecord::Base
   has_many :accepting_team_players, ->(accepting_team) { where current_team: accepting_team }, class_name: :TradePlayer
   has_many :proposing_team_players, ->(proposing_team) { where current_team: proposing_team }, class_name: :TradePlayer
 end
+

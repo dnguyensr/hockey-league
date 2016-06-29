@@ -41,14 +41,15 @@ class TradesController < ApplicationController
     end
   end
 
+      # @trade.trade_players.build(player: players.first, current_team: @trade.proposing_team)
+      # @trade.trade_players.build(player: players.first, current_team: @trade.accepting_team)
+
   # PATCH/PUT /trades/1
   # PATCH/PUT /trades/1.json
   def update
     respond_to do |format|
-      @trade.accepting_team_players.build(#something)
-      @trade.proposing_team_players.build(#something else)
-      # @trade.trade_players.build(player: players.first, current_team: @trade.proposing_team)
-      # @trade.trade_players.build(player: players.first, current_team: @trade.accepting_team)
+      update_trade_proposing_team(proposing_team_params,@trade)
+      update_trade_accepting_team(accepting_team_params,@trade)
       if @trade.save
         format.html { redirect_to @trade, notice: 'Trade was successfully updated.' }
         format.json { render :show, status: :ok, location: @trade }
@@ -73,6 +74,22 @@ class TradesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_trade
       @trade = Trade.find(params[:id])
+    end
+
+    def update_trade_proposing_team (params, trade)
+      array = params[:player_id]
+      new_params = array.delete_if{|x| x == ""}
+      new_params.each do |param|
+        trade.proposing_team_players.build(player: Player.find(param.to_i) )
+      end
+    end
+
+    def update_trade_accepting_team (params, trade)
+      array = params[:player_id]
+      new_params = array.delete_if{|x| x == ""}
+      new_params.each do |param|
+        trade.accepting_team_players.build(player: Player.find(param.to_i) )
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
