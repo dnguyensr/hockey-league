@@ -13,10 +13,10 @@
           <td>at <%= game.home_team.city %> <%= game.home_team.name%></td>
           <td><%= game.date_time.strftime('%m/%d/%y') %></td>
           <td><%= game.date_time.strftime('%H:%M') %></td>
-          <td><%= link_to 'Game Info', game %></td>
+          <td><button><%= link_to 'Game Info', game %></button></td>
           <% if league_admin_signed_in? %>
-            <td><%= link_to 'Edit', edit_game_path(game) %></td>
-            <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><button><%= link_to 'Edit', edit_game_path(game) %></button></td>
+            <td><button><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
           <% end %>
         </tr>
       <% end %>
