@@ -7,6 +7,7 @@ class LeaguesController < ApplicationController
     @leagues = League.all
     @posts = Post.last(6)
     @games = (Game.where("date_time >= ?", Date.today).order("date_time ASC").first(13)).select do |game|
+    @teams_need_admin = Team.where(team_admin_id: nil)
       if game.home_team_score.nil?
         game
       end
@@ -19,14 +20,15 @@ class LeaguesController < ApplicationController
   end
 
   def activate
-    @admin = TeamAdmin.find(params[:id])
-    @admin.update_attribute(:approved, true)
+    teamadmin = TeamAdmin.find(params[:id])
+    teamadmin.update_attribute(:approved, true)
+    Team.find(params[:team]).update(team_admin_id: teamadmin.id)
     redirect_to "/"
   end
 
   def deactivate
-    @admin = TeamAdmin.find(params[:id])
-    @admin.destroy!
+    teamadmin = TeamAdmin.find(params[:id])
+    teamadmin.destroy!
     redirect_to "/"
   end
   # GET /leagues/1
