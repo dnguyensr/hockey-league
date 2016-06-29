@@ -7,4 +7,16 @@ class Game < ActiveRecord::Base
     where("home_team_id = ? or away_team_id =?", team_id, team_id).order("created_at DESC").limit(12)
   end
 
+  def winner
+    if home_team_score == nil || awawy_team_score == nil
+      return "pending"
+    elsif home_team_score > away_team_score
+      return self.home_team.teamcity
+    elsif away_team_score > home_team_score
+      return self.home_team.teamcity
+    elsif away_team_score == home_team_score && away_team_score != nil
+      return "tie"
+    else
+    end
+  end
 end
