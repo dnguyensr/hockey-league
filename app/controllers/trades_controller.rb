@@ -46,6 +46,17 @@ class TradesController < ApplicationController
       # @trade.trade_players.build(player: players.first, current_team: @trade.proposing_team)
       # @trade.trade_players.build(player: players.first, current_team: @trade.accepting_team)
 
+  def accept
+    @trade = Trade.find(params[:trade_id])
+    @proposing_team = @trade.proposing_team
+    @accepting_team = @trade.accepting_team
+    update_team_players(proposing_team_players(@trade.trade_players, @proposing_team), @accepting_team)
+    update_team_players(accepting_team_players(@trade.trade_players, @accepting_team), @proposing_team)
+
+    @trade.accepted = true
+    @trade.save
+    redirect_to '/'
+  end
   # PATCH/PUT /trades/1
   # PATCH/PUT /trades/1.json
   def update
@@ -76,6 +87,30 @@ class TradesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_trade
       @trade = Trade.find(params[:id])
+    end
+
+    def proposing_team_players(trade_players, proposing_team)
+      trade_players.map do |trade_player|
+        if trade_player.player.team == proposing_team
+          trade_player.player
+        end
+      end
+      trade_players.compact
+    end
+
+    def accepting_team_players(trade_players, accepting_team)
+      trade_players.map do |trade_player|
+        if trade_player.player.team == accepting_team
+          trade_player.player
+        end
+      end
+      trade_players.compact
+    end
+
+    def update_team_players(players, new_team)
+      players.each do |player|
+        player.player.update(team_id: new_team.id)
+      end
     end
 
     def update_trade_proposing_team (params, trade)
