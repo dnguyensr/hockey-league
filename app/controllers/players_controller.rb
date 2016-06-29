@@ -25,6 +25,9 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    unless  Player.find(params[:id]).team_id == Team.find_by(team_admin_id: current_team_admin.id).id
+      redirect_to '/'
+    end
   end
 
   # POST /players
