@@ -21,8 +21,6 @@ $section-height: 300px;
 #game_section {
   border: solid #37474F 3px;
   height: $section-height;
-  margin-bottom: 5em;
-  margin-top: 5em;
   text-align: center;
 }
 
@@ -30,9 +28,7 @@ $section-height: 300px;
   display: inline-block;
 }
 
-th {
-  text-align:left;
-}
-tr td {
-  padding-right: 2em;
+#float-right {
+  float: right;
+  position: relative;
 }
