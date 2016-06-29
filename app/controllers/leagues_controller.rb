@@ -6,7 +6,7 @@ class LeaguesController < ApplicationController
   def index
     @leagues = League.all
     @posts = Post.last(10)
-    @games = Game.all
+    @games = Game.where("date_time >= ?", Date.today).order("date_time ASC").first(10)
     if params[:approved] == "false"
       @teamadmins = TeamAdmin.find_by_approved(false)
     else
