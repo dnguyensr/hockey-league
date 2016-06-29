@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Players</h1>
+<h1>Full Roster</h1>
 
 <section id="first_section">
   <table>
@@ -9,6 +9,7 @@
         <th>Name</th>
         <th>Jersey</th>
         <th>Team</th>
+        <th>Position</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -18,7 +19,9 @@
         <tr>
           <td><%= player.full_name %></td>
           <td><%= player.jersey_number %></td>
-          <td><%= player.team_id %></td>
+          <% team = Team.find(player.team_id) %>
+          <td><%= team.name %></td>
+          <td><%= player.position %></td>
           <td><button><%= link_to 'Show', player %></button></td>
           <% if team_admin_signed_in? %>
           <td><button><%= link_to 'Edit', edit_player_path(player) %></button></td>
