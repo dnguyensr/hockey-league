@@ -19,7 +19,8 @@
         <% if league_admin_signed_in? %>
           <a class="navbar-brand" href="/">Welcome, <%= current_league_admin.full_name %>. League Administrator.</a>
         <% elsif team_admin_signed_in? %>
-          <a class="navbar-brand" href="/">Welcome, <%= current_team_admin.full_name %>. <%= Team.find_by(team_admin_id: current_team_admin.id).name %> Manager</a>
+          <% team = Team.where(id: current_team_admin.id) %>
+          <a class="navbar-brand" href="/teams/<%= team[0].id %>">Welcome, <%= current_team_admin.full_name %>. <%= Team.find_by(team_admin_id: current_team_admin.id).name %> Manager</a>
         <% end %>
       </div>
       <ul class="nav navbar-nav" style="float:right;">
