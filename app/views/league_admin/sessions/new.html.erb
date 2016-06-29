@@ -1,6 +1,6 @@
 <h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: create_session_path) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -22,5 +22,3 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "league_admin/shared/links" %>
