@@ -10,7 +10,9 @@
           <tr>
             <td><%= teamadmin.email %></td>
             <td><%= teamadmin.full_name %></td>
-            <td><%= link_to 'Edit', edit_team_admin_registration_path(teamadmin) %></td><br>
+            <td><%= link_to 'Approve', edit_league_admin_registration_path(teamadmin) %></td>
+            <td><%= link_to 'Deny',  %></td>
+            <br>
           </tr>
       </table>
     <% end %>
