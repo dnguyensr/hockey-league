@@ -5,7 +5,13 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    binding.pry
+    if current_team_admin
+      team = Team.find_by(team_admin_id: current_team_admin.id)
+      @players = team.players
+    else
+      @players = Player.all
+    end
   end
 
   # GET /players/1
