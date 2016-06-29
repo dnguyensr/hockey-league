@@ -58,7 +58,7 @@ class TradesController < ApplicationController
     redirect_to '/'
   end
   # PATCH/PUT /trades/1
-  # PATCH/PUT /trades/1.json
+
   def update
     respond_to do |format|
       update_trade_proposing_team(proposing_team_params,@trade)
