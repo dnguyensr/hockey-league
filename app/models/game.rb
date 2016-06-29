@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
   end
 
   def winner
-    if home_team_score == nil || awawy_team_score == nil
+    if home_team_score == nil || away_team_score == nil
       return "pending"
     elsif home_team_score > away_team_score
       return self.home_team.teamcity
