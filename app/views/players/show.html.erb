@@ -1,4 +1,6 @@
-
+<% if team_admin_signed_in? %>
+  <button id="new"><%= link_to 'Edit', edit_player_path(@player) %></button>
+<% end %>
 <section id="first_section">
   <p id="notice"><%= notice %></p>
 
@@ -22,6 +24,5 @@
     <%= @player.team_id %>
   </p>
 
-  <button><%= link_to 'Edit', edit_player_path(@player) %></button> |
   <button><%= link_to 'Back', players_path %></button>
 </section>

@@ -1,5 +1,8 @@
 <h1>All Teams</h1>
 
+<% if league_admin_signed_in? %>
+  <button id="new"><%= link_to 'New Team', new_team_path %></button>
+<% end %>
 <section id="first_section">
   <p id="notice"><%= notice %></p>
 
@@ -35,5 +38,5 @@
 
   <br>
 
-  <button><%= link_to 'New Team', new_team_path %></button>
+
 </section>
