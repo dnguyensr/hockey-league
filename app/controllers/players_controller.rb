@@ -1,10 +1,16 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_team_admin!, except: [:show, :index]
 
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    if current_team_admin
+      team = Team.find_by(team_admin_id: current_team_admin.id)
+      @players = team.players
+    else
+      @players = Player.all
+    end
   end
 
   # GET /players/1
