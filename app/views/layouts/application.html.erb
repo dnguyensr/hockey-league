@@ -28,6 +28,7 @@
         <li><a href="/teams">Teams</a></li>
         <li><a href="/games">Schedule</a></li>
         <li><a href="/players">Roster</a></li>
+        <li><a href="/trades">Trades</a></li>
         <% if league_admin_signed_in? || team_admin_signed_in? %>
           <li><%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %></li>
         <% else %>
