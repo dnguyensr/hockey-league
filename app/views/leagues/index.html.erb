@@ -1,31 +1,39 @@
 <h1>Home Page</h1>
 
-<% if league_admin_signed_in? %>
-  Managers awaiting approval:
 
+<% if league_admin_signed_in?  %>
 
-  <table>
-    <% @teamadmins.each do |teamadmin| %>
-      <tr>
-        <td><%= teamadmin.email %></td>
-        <td><%= teamadmin.full_name %></td>
-        <td><%= teamadmin.approved %></td>
-        <td><%= link_to 'Edit', edit_team_admin_registration_path(teamadmin) %></td><br>
-      </tr>
-  </table>
-  <% end %>
-<% end %>
+  <section id="first_section">
+    Managers awaiting approval:
+      <table>
+        <% @teamadmins.each do |teamadmin| %>
+          <tr>
+            <td><%= teamadmin.email %></td>
+            <td><%= teamadmin.full_name %></td>
+            <td><%= link_to 'Edit', edit_team_admin_registration_path(teamadmin) %></td><br>
+          </tr>
+      </table>
+    <% end %>
+    <%= link_to 'Edit Homepage', root_path %><br>
+    <%= link_to 'Add Team', new_team_path %><br>
+      <!-- edit_team_path does not work because no reference to team #, need to make landing page to choose team -->
+    <%= link_to 'Add Game', new_game_path %><br>
+    <%= link_to 'Edit Game', games_path %><br>
 
-<section id="first_section">
-  <div class='blog'>
-    <h3>Schedule</h3>
-    <%= render partial: 'games/schedule' %>
-  </div>
-</section>
+  </section>
 
-<section id="second_section">
-  <div>
-    <h2>News Posts</h2>
-    <%= render partial: 'posts/recent' %>
-  </div>
+<% end  %>
+
+<h2>Schedule</h2>
+  <section id="second_section">
+    <div class='blog'>
+      <%= render partial: 'games/schedule' %>
+    </div>
+  </section>
+
+<h2>News Posts</h2>
+  <section id="third_section">
+    <div>
+      <%= render partial: 'posts/recent' %>
+    </div>
 </section>

@@ -1,6 +1,7 @@
-<% @posts.each do |post|  %>
+<% @posts.each do |post| %>
   <div class='post-container'>
-  <b><%=post.title  %></b> <br>
-  <%=post.content  %><br><br>
+    <% @team = Team.find(post.team_id) %>
+    <b><a href="/teams/<%= @team.id %>"><%= post.title %></a></b><br>
+    <%= post.content %><br><br>
   </div>
 <% end %>

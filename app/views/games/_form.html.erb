@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :team_game_id %><br>
-    <%= f.number_field :team_game_id %>
+    <%= f.label :away_team_id %><br>
+    <%= f.number_field :away_team_id %>
   </div>
   <div class="field">
-    <%= f.label :game_date %><br>
-    <%= f.date_select :game_date %>
+    <%= f.label :home_team_id %><br>
+    <%= f.number_field :home_team_id %>
   </div>
   <div class="field">
-    <%= f.label :game_time %><br>
-    <%= f.time_select :game_time %>
+    <%= f.label :date_time %><br>
+    <%= f.datetime_select :date_time %>
   </div>
   <div class="actions">
     <%= f.submit %>
