@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
   <div class='post-container'>
     <% team = Team.find(post.team_id) %>
-    <b><a href="/teams/<%= team.id %>"><%= post.title %></a></b><br>
+    <b><a href="/posts/<%= post.id %>"><%= post.title %></a></b><br>
     <%= post.content %>
     <% if team_admin_signed_in? %>
       <% if current_team_admin.id == post.author_id %>

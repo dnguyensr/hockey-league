@@ -10,10 +10,9 @@
     </div>
   <% end %>
 
-  <%= f.association :home_team %>
-  <%= f.association :away_team %>
-  <%= f.input :date_time %>
+  <%= f.association :home_team, required: false %>
+  <%= f.association :away_team, required: false %>
+  <%= f.input :date_time, required: false %>
   <%= f.submit 'Create Game' %>
 
 <% end %>
-s
