@@ -12,14 +12,14 @@ class Game < ActiveRecord::Base
   end
 
   def winner
-    if home_team_score == nil || awawy_team_score == nil
-      return "pending"
+    if home_team_score == nil || away_team_score == nil
+      return "Ongoing"
     elsif home_team_score > away_team_score
-      return self.home_team.teamcity
+      return self.home_team.teamcity + " wins!"
     elsif away_team_score > home_team_score
-      return self.home_team.teamcity
+      return self.home_team.teamcity + " wins!"
     elsif away_team_score == home_team_score && away_team_score != nil
-      return "tie"
+      return "Tie"
     else
     end
   end

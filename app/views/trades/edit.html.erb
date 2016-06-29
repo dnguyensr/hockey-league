@@ -5,7 +5,10 @@
   <%= render 'details' %>
 
   <br>
-  <button><%= link_to 'Back', trades_path %></button>
-  <button><%= link_to 'Accept', trade_accept_path(@trade), method: :patch %></button>
-  <button><%= link_to 'Decline', trade_path(@trade)%></button>
+  <% if team_admin_signed_in?  %>
+    <% if current_team_admin.id == @accepting_team.team_admin_id %>
+      <button><%= link_to 'Accept', trade_accept_path(@trade), method: :patch %></button>
+      <button><%= link_to 'Decline', trade_path(@trade)%></button>
+    <% end %>
+  <% end %>
 </section>
