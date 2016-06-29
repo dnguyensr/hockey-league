@@ -1,14 +1,14 @@
 <% @posts.each do |post| %>
   <div class='post-container'>
     <% team = Team.find(post.team_id) %>
-    <b><a href="/posts/<%= post.id %>"><%= post.title %></a></b><br>
-    <%= post.content %>
+    <h4><b><a href="/posts/<%= post.id %>"><%= post.title %></a></b></h4>
+    <p><%= post.content %></p>
     <% if team_admin_signed_in? %>
       <% if current_team_admin.id == post.author_id %>
         <button><%= link_to 'Edit', edit_post_path(post) %></button>
         <button><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       <% end %>
     <% end %>
-    <br><br>
+    <br>
   </div>
 <% end %>

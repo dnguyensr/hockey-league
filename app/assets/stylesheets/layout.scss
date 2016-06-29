@@ -1,12 +1,16 @@
 $header-height: 100px;
 
+body {
+  font-family: 'Abel', sans-serif;
+}
+
 tr, td, th {
   border: 20px solid transparent;
 }
 
 button {
-  background-color: black;
-  border-radius: 6px;
+  background-color: white;
+  border-radius: 8px;
 }
 
 #new {
@@ -14,7 +18,7 @@ button {
 }
 
 #bootstrap-overrides {
-  background-color: #37474F;
+  background-color: #000;
   width: 65%;
   margin: auto;
 }
