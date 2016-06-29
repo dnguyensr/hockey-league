@@ -1,6 +1,5 @@
 <%= javascript_include_tag params[:controller] %>
 
-
 <div id="primary_color" style="display:none;"><%= @team.primary_color %></div>
 <div id="secondary_color" style="display:none;"><%= @team.secondary_color %></div>
 
@@ -8,14 +7,13 @@
 <h2>Recent Posts</h2>
 <section id="first_section">
   <div class='blog'>
-
   <%= render partial: 'posts/recent' %>
   </div>
 </section>
+
 <h2>Recent Games</h2>
 <section id="second_section">
   <div class='blog'>
-
     <%= render partial: 'games/schedule' %>
   </div>
 </section>
