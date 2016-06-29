@@ -4,7 +4,7 @@
 <div id="containinside">
   <section id="game_section">
     <div class="inner_container"></div>
-      <h2><strong><%= @game.date_time.strftime('%m/%d/%y') %> @ <%= @game.date_time.strftime('%H:%M') %></strong></h2>
+      <h2><strong><%= @game.date_time.strftime('%m/%d/%y') %> @ <%= @game.date_time.strftime('%l:%M %p %Z') %></strong></h2>
       <div class="linebreak"></div>
 
       <div class="left">
