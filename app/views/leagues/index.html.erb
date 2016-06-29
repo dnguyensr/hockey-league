@@ -2,30 +2,27 @@
 
 
 <% if league_admin_signed_in?  %>
+  <nav>
+    League Admin Options<br>
+    <button><%= link_to 'Add Team', new_team_path %></button>
+    <button><%= link_to 'Add Game', new_game_path %></button>
+    <button><%= link_to 'Edit Game', games_path %></button>
+  </nav><br>
 
-  <section id="first_section">
-    <nav>
-      League Admin Options<br>
-      <button><%= link_to 'Add Team', new_team_path %></button>
-      <button><%= link_to 'Add Game', new_game_path %></button>
-      <button><%= link_to 'Edit Game', games_path %></button>
-    </nav><br>
+  <% if !@teamadmins.map{|admin| admin.approved}.any? %>
     Managers awaiting approval:
-        <% @teamadmins.each do |teamadmin| %>
-          <div>
-            <% if !teamadmin.approved %>
-              <p><%= teamadmin.email %></p>
-              <p><%= teamadmin.full_name %></p>
-              <button><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch %></button>
-              <button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete %></button>
-            <% end %>
-         </div>
+      <% @teamadmins.each do |teamadmin| %>
+        <div>
+          <% if !teamadmin.approved %>
+            <p><%= teamadmin.email %></p>
+            <p><%= teamadmin.full_name %></p>
+            <button><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch %></button>
+            <button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete %></button>
+          <% end %>
+       </div>
     <% end %>
-    <br>
-  </section>
-
-<% end  %>
-
+  <% end %>
+<% end %>
 
 <h2>Upcoming Games</h2>
 
