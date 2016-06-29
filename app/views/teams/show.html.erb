@@ -2,7 +2,8 @@
 #League Schedule Div
 #Sidebar
  -->
-<h1> <%=@team.name  %> </h1>
+<h1><%= @team.name  %></h1>
+
 <h2>Recent Posts</h2>
 <section id="first_section">
   <div class='blog'>
@@ -17,10 +18,10 @@
     <%= render partial: 'games/schedule' %>
   </div>
 </section>
-<h2>Roster</h2>
+<!-- <h2>Roster</h2>
 <section id='third_section'>
   <div class='blog'>
   <h2> Players </h2>
-    <%= render partial: 'teams/roster' %>
+  <%= render partial: 'teams/roster' %>
   </div>
-</section>
+</section> -->
