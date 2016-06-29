@@ -4,25 +4,24 @@
 <% if league_admin_signed_in?  %>
 
   <section id="first_section">
+    <nav>
+      League Admin Options<br>
+      <button><%= link_to 'Add Team', new_team_path %></button>
+      <button><%= link_to 'Add Game', new_game_path %></button>
+      <button><%= link_to 'Edit Game', games_path %></button>
+    </nav><br>
     Managers awaiting approval:
-      <table>
         <% @teamadmins.each do |teamadmin| %>
-          <tr>
+          <div>
             <% if !teamadmin.approved %>
-              <td><%= teamadmin.email %></td>
-              <td><%= teamadmin.full_name %></td>
-              <td><button><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch
-              %></button></td>
-              <td><button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete
-              %></button></td>
+              <p><%= teamadmin.email %></p>
+              <p><%= teamadmin.full_name %></p>
+              <button><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch %></button>
+              <button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete %></button>
             <% end %>
-          </tr>
-      </table>
+         </div>
     <% end %>
     <br>
-    <button><%= link_to 'Add Team', new_team_path %></button><br>
-    <button><%= link_to 'Add Game', new_game_path %></button><br>
-    <button><%= link_to 'Edit Game', games_path %></button><br>
   </section>
 
 <% end  %>
