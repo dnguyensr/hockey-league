@@ -1,3 +1,6 @@
+<% if league_admin_signed_in? %>
+  <button id="new"><%= link_to 'Edit', edit_game_path(@game) %></button>
+<% end %>
 <div id="containinside">
   <section id="game_section">
     <div class="inner_container"></div>
@@ -16,8 +19,5 @@
       </div>
     </div>
   </section>
-  <% if league_admin_signed_in? %>
-    <%= link_to 'Edit', edit_game_path(@game) %> |
-    <%= link_to 'Back', games_path %>
-  <% end %>
+<button style="float:left;"><%= link_to 'Back', games_path %></button>
 </div>
