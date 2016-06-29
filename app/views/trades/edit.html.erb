@@ -5,7 +5,7 @@
   <%= render 'details' %>
 
   <br>
-  <%= link_to 'Back', trades_path %>
-  <%= link_to 'Accept', trade_accept_path(@trade), method: :patch %>
-  <%= link_to 'Decline', trade_path(@trade)%>
+  <button><%= link_to 'Back', trades_path %></button>
+  <button><%= link_to 'Accept', trade_accept_path(@trade), method: :patch %></button>
+  <button><%= link_to 'Decline', trade_path(@trade)%></button>
 </section>

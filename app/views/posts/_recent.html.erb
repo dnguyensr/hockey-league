@@ -5,8 +5,8 @@
     <%= post.content %>
     <% if team_admin_signed_in? %>
       <% if current_team_admin.id == post.author_id %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <button><%= link_to 'Edit', edit_post_path(post) %></button>
+        <button><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       <% end %>
     <% end %>
     <br><br>

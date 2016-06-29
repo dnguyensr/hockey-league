@@ -17,12 +17,12 @@
       <% @players.each do |player| %>
         <tr>
           <td><%= player.full_name %></td>
-          <td style="padding-left: 1em"><%= player.jersey_number %></td>
-          <td style="padding-left: 1em"><%= player.team_id %></td>
-          <td><%= link_to 'Show', player %></td>
+          <td><%= player.jersey_number %></td>
+          <td><%= player.team_id %></td>
+          <td><button><%= link_to 'Show', player %></button></td>
           <% if team_admin_signed_in? %>
-          <td><%= link_to 'Edit', edit_player_path(player) %></td>
-          <td><%= link_to 'Release', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><button><%= link_to 'Edit', edit_player_path(player) %></button></td>
+          <td><button><%= link_to 'Release', player, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
           <% end %>
         </tr>
       <% end %>
@@ -31,5 +31,5 @@
 
   <br>
 
-  <%= link_to 'New Player', new_player_path %>
+  <button><%= link_to 'New Player', new_player_path %></button>
 </section>

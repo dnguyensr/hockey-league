@@ -17,9 +17,9 @@
           <td><%= trade.proposing_team_id %></td>
           <td><%= trade.accepting_team_id %></td>
           <td><%= trade.accepted %></td>
-          <td><%= link_to 'Show', trade %></td>
-          <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
-          <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><button><%= link_to 'Show', trade %></button></td>
+          <td><button><%= link_to 'Edit', edit_trade_path(trade) %></button></td>
+          <td><button><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
         </tr>
       <% end %>
     </tbody>
