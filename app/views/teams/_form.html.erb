@@ -1,4 +1,4 @@
-<%= form_for(@team) do |f| %>
+<%= simple_form_for(@team) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -10,36 +10,13 @@
       </ul>
     </div>
   <% end %>
+  <p>
+  <%= f.association :team_admin, label_method: :full_name, value_method: :id %></p>
+  <p><%= f.input :name, as: :text %></p>
+  <p><%= f.input :city, as: :text %></p>
+  <p><%= f.input :mascot, as: :text %></p>
+  <p><%= f.input :primary_color, as: :text %></p>
+  <p><%= f.input :secondary_color, as: :text %></p>
+  <p><%= f.submit %></p>
 
-  <div class="field">
-    <%= f.label :team_admin_id %><br>
-    <%= f.number_field :team_admin_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :league_id %><br>
-    <%= f.number_field :league_id %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :mascot %><br>
-    <%= f.text_field :mascot %>
-  </div>
-  <div class="field">
-    <%= f.label :primary_color %><br>
-    <%= f.text_field :primary_color %>
-  </div>
-  <div class="field">
-    <%= f.label :secondary_color %><br>
-    <%= f.text_field :secondary_color %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
