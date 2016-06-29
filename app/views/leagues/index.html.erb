@@ -11,18 +11,18 @@
             <% if !teamadmin.approved %>
               <td><%= teamadmin.email %></td>
               <td><%= teamadmin.full_name %></td>
-              <td><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch
-              %></td>
-              <td><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete
-              %></td>
+              <td><button><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch
+              %></button></td>
+              <td><button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete
+              %></button></td>
             <% end %>
           </tr>
       </table>
     <% end %>
     <br>
-    <%= link_to 'Add Team', new_team_path %><br>
-    <%= link_to 'Add Game', new_game_path %><br>
-    <%= link_to 'Edit Game', games_path %><br>
+    <button><%= link_to 'Add Team', new_team_path %></button><br>
+    <button><%= link_to 'Add Game', new_game_path %></button><br>
+    <button><%= link_to 'Edit Game', games_path %></button><br>
   </section>
 
 <% end  %>

@@ -7,6 +7,7 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'ui_faces'
 # Use bourbon and neat for SCSS
 gem 'bourbon'
 gem 'neat'

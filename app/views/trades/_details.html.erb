@@ -1,21 +1,24 @@
-<h3> Proposing Team: <%=@proposing_team.teamcity  %> </h3>
+<section id="first_section">
 
-<%@trade.trade_players.each do |trade_player|  %>
-  <%if trade_player.player.team == @proposing_team%>
-    <div>
-      <%= trade_player.player.full_name %>
-    </div>
+  <h3> Proposing Team: <%=@proposing_team.teamcity  %> </h3>
+
+  <%@trade.trade_players.each do |trade_player|  %>
+    <%if trade_player.player.team == @proposing_team%>
+      <div>
+        <%= trade_player.player.full_name %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
 
-<h3> Reviewing Team: <%=@accepting_team.teamcity  %> </h3>
+  <h3> Reviewing Team: <%=@accepting_team.teamcity  %> </h3>
 
-<%@trade.trade_players.each do |trade_player|  %>
-  <%if trade_player.player.team == @accepting_team%>
-    <div>
-      <%= trade_player.player.full_name %>
+  <%@trade.trade_players.each do |trade_player|  %>
+    <%if trade_player.player.team == @accepting_team%>
+      <div>
+        <%= trade_player.player.full_name %>
 
-    </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</section>
