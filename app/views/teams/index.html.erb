@@ -29,7 +29,7 @@
           <td><%= team.secondary_color.capitalize %></td>
           <td><%= link_to 'Show', team %></td>
 
-          <% if team_admin_signed_in? %>
+          <% if league_admin_signed_in? %>
             <td><%= link_to 'Edit', edit_team_path(team) %></td>
             <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
