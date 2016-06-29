@@ -4,7 +4,7 @@ class TradesController < ApplicationController
   # GET /trades
   # GET /trades.json
   def index
-    @trades = Trade.all
+    @trades = Trade.where(accepted: true)
   end
 
   # GET /trades/1
