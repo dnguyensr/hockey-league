@@ -1,12 +1,12 @@
 $header-height: 100px;
 
-body {
+#bootstrap-overrides {
   background-color: #37474F;
   width: 65%;
   margin: auto;
 }
 
-#inside {
+#containinside {
   background-color: white;
   padding: 50px;
 }
@@ -37,20 +37,11 @@ body {
 }
 
 nav {
-  float: right;
-  margin-top: 20px;
-  text-align: center;
-  height: 50px;
+  margin-top: 40px;
+  padding: 5px;
 }
 
-nav a {
-  color: #546E7A;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 14px;
-}
 
 .linebreak {
   height: 10px;
-
 }

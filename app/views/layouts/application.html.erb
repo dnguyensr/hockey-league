@@ -5,27 +5,42 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
-<body>
-<div id='inside'>
-  <section class="header">
-    <a href="/"><img src="/assets/05_NHL_Shield.svg.png" alt="logo"/></a>
-    <a href="/"><h1>NHL</h1></a>
-  </section>
-  <nav>
-    <a href='/'>Home</a>
-    <a href='/teams'>Teams</a>
-    <a href='/games'>Schedule</a>
-    <a href='/players'>Roster</a>
-    <% if league_admin_signed_in? || team_admin_signed_in? %>
-      <%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %>
-    <% else %>
-      <%= link_to('Login', new_league_admin_session_path ) %>
-    <% end %>
+<body id="bootstrap-overrides">
+
+  <div id='containinside'>
+    <section class="header">
+      <a href="/"><img src="/assets/05_NHL_Shield.svg.png" alt="logo"/></a>
+      <a href="/"><h1>NHL</h1></a>
+    </section>
+
+  <nav class="navbar navbar-inverse" style="width:100%;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <% if league_admin_signed_in? %>
+          <a class="navbar-brand" href="/">Welcome, <%= current_league_admin.full_name %>. League Administrator.</a>
+        <% elsif team_admin_signed_in? %>
+          <a class="navbar-brand" href="/">Welcome, <%= current_team_admin.full_name %>. <%= Team.find_by(team_admin_id: current_team_admin.id).name %> Manager</a>
+        <% end %>
+      </div>
+      <ul class="nav navbar-nav" style="float:right;">
+        <li><a href="/">Home</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/games">Schedule</a></li>
+        <li><a href="/players">Roster</a></li>
+        <% if league_admin_signed_in? || team_admin_signed_in? %>
+          <li><%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %></li>
+        <% else %>
+          <li><%= link_to('Login', new_league_admin_session_path ) %></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
-<%= yield %>
-</div>
+
+  <%= yield %>
+  </div>
 </body>
 
 </html>

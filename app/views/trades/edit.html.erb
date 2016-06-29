@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h1>Accept or Decline Trade</h1>
 
-<%= render 'details' %>
+<section id="first_section">
+  <%= render 'details' %>
 
-<br>
-<%= link_to 'Back', trades_path %>
-<%= link_to 'Accept', trade_accept_path(@trade), method: :patch %>
-<%= link_to 'Decline', trade_path(@trade)%>
+  <br>
+  <%= link_to 'Back', trades_path %>
+  <%= link_to 'Accept', trade_accept_path(@trade), method: :patch %>
+  <%= link_to 'Decline', trade_path(@trade)%>
+</section>

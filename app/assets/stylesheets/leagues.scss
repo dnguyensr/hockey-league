@@ -6,17 +6,13 @@ $section-border: solid #37474F 2px;
 $section-height: 300px;
 $section-padding: 0px 20px 10px 20px;
 
-#first_section, #second_section {
+#first_section, #second_section, #third_section {
   border: $section-border;
   height: $section-height;
-  margin-bottom: 30px;
+  margin: auto;
   overflow: auto;
   padding: $section-padding;
-}
-
-#third_section {
-  border: $section-border;
-  height: $section-height;
-  overflow: auto;
-  padding: $section-padding;
+  text-align: center;
+  position: relative;
+  font-size: 1.4em;
 }
