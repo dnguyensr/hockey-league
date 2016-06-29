@@ -5,8 +5,8 @@ class LeaguesController < ApplicationController
   # GET /leagues.json
   def index
     @leagues = League.all
-    @posts = Post.last(10)
-    @games = Game.all
+    @posts = Post.last(6)
+    @games = Game.where("date_time >= ?", Date.today).order("date_time ASC").first(13)
     if params[:approved] == "false"
       @teamadmins = TeamAdmin.find_by_approved(false)
     else
