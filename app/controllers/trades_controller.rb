@@ -22,6 +22,8 @@ class TradesController < ApplicationController
 
   # GET /trades/1/edit
   def edit
+    @proposing_team = @trade.proposing_team
+    @accepting_team = @trade.accepting_team
   end
 
   # POST /trades

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :team_admins, :skip => [ :registrations, :passwords ], controllers: { sessions: 'team_admin/sessions', registrations: 'team_admin/registrations' }
-  resources :trades, :except => [ :index, :edit, :delete ]
+  resources :trades, :except => [ :index, :delete ]
   resources :posts, :except => [ :index ]
   resources :games
   resources :players

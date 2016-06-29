@@ -1,6 +1,7 @@
-<h1>Editing Trade</h1>
+<h1>Accept or Decline Trade</h1>
 
-<%= render 'form' %>
+<%= render 'details' %>
 
-<%= link_to 'Show', @trade %> |
+<br>
 <%= link_to 'Back', trades_path %>
+<%= link_to 'accept', trade_path(@trade), method: :patch %>
