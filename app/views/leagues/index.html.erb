@@ -8,12 +8,16 @@
       <table>
         <% @teamadmins.each do |teamadmin| %>
           <tr>
-            <td><%= teamadmin.email %></td>
-            <td><%= teamadmin.full_name %></td>
-            <td><%= link_to 'Edit', edit_team_admin_registration_path(teamadmin) %></td><br>
+            <% if !teamadmin.approved %>
+              <td><%= teamadmin.email %></td>
+              <td><%= teamadmin.full_name %></td>
+              <td><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch
+              %></td>
+            <% end %>
           </tr>
       </table>
     <% end %>
+    <br>
     <%= link_to 'Edit Homepage', root_path %><br>
     <%= link_to 'Add Team', new_team_path %><br>
       <!-- edit_team_path does not work because no reference to team #, need to make landing page to choose team -->

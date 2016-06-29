@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   devise_for :team_admins, :skip => [ :sessions, :passwords ], controllers: { sessions: 'team_admin/sessions', registrations: 'team_admin/registrations' }
 
+  patch "team_admins/:id/edit" => "leagues#activate", :as => "approve_team_manager"
+
   devise_scope :league_admin do
     get '/sign_in'    => 'league_admin/sessions#new', :as => :new_league_admin_session
     match '/sign_in'  => 'league_admin/sessions#new', :as => :new_session, via: 'get'
@@ -20,6 +22,9 @@ Rails.application.routes.draw do
   namespace :team_admin do
     get '/' => redirect('/team_admin'), as: 'root'
   end
+
+
+
 
   devise_for :team_admins, :skip => [ :registrations, :passwords ], controllers: { sessions: 'team_admin/sessions', registrations: 'team_admin/registrations' }
   resources :trades, :except => [ :index, :edit, :delete ]

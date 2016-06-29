@@ -14,6 +14,11 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def activate
+    @admin = TeamAdmin.find(params[:id])
+    @admin.update_attribute(:approved, true)
+    redirect_to "/"
+  end
   # GET /leagues/1
   # GET /leagues/1.json
   # def show
@@ -46,17 +51,17 @@ class LeaguesController < ApplicationController
 
   # PATCH/PUT /leagues/1
   # PATCH/PUT /leagues/1.json
-  def update
-    respond_to do |format|
-      if @league.update(league_params)
-        format.html { redirect_to @league, notice: 'League was successfully updated.' }
-        format.json { render :show, status: :ok, location: @league }
-      else
-        format.html { render :edit }
-        format.json { render json: @league.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @league.update(league_params)
+  #       format.html { redirect_to @league, notice: 'League was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @league }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @league.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /leagues/1
   # DELETE /leagues/1.json

@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+
   end
 
   def league_team_edit
