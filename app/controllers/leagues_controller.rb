@@ -14,6 +14,17 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def activate
+    @admin = TeamAdmin.find(params[:id])
+    @admin.update_attribute(:approved, true)
+    redirect_to "/"
+  end
+
+  def deactivate
+    @admin = TeamAdmin.find(params[:id])
+    @admin.destroy!
+    redirect_to "/"
+  end
   # GET /leagues/1
   # GET /leagues/1.json
   # def show
