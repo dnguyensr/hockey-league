@@ -1,5 +1,21 @@
 <h1>Home Page</h1>
 
+<% if league_admin_signed_in? %>
+  Managers awaiting approval:
+
+
+  <table>
+    <% @teamadmins.each do |teamadmin| %>
+      <tr>
+        <td><%= teamadmin.email %></td>
+        <td><%= teamadmin.full_name %></td>
+        <td><%= teamadmin.approved %></td>
+        <td><%= link_to 'Edit', edit_team_admin_registration_path(teamadmin) %></td><br>
+      </tr>
+  </table>
+  <% end %>
+<% end %>
+
 <section id="first_section">
   <div class='blog'>
     <h3>Schedule</h3>
