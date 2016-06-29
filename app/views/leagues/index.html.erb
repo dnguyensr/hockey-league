@@ -1,22 +1,30 @@
 <% if league_admin_signed_in?  %>
   <nav>
-    League Admin Options<br>
+    <strong><u>League Admin Options:</u></strong><br>
     <button><%= link_to 'Add Team', new_team_path %></button>
     <button><%= link_to 'Add Game', new_game_path %></button>
     <button><%= link_to 'Edit Game', games_path %></button>
   </nav><br>
 
-  <% if !@teamadmins.map{|admin| admin.approved}.any? %>
-    Managers awaiting approval:
-      <% @teamadmins.each do |teamadmin| %>
-        <div>
-          <% if !teamadmin.approved %>
-            <p><%= teamadmin.email %></p>
-            <p><%= teamadmin.full_name %></p>
-            <button><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch %></button>
-            <button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete %></button>
+  <% if @teamadmins.map{|admin| admin.approved}.any? %>
+    <strong><u>Team managers awaiting approval:</u></strong>
+  <% end %>
+
+  <% @teamadmins.each do |teamadmin| %>
+    <% if !teamadmin.approved %>
+      <br><span><strong>Email: </strong><%= teamadmin.email %><br>  <strong>Name: </strong><%= teamadmin.full_name %></span><br>
+      <% if @teams_need_admin.any? %>
+        <form action="<%= approve_team_manager_path(teamadmin) %>" method="post" style="float:left;">
+          <input type="hidden" name="_method" value="patch" />
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <% @teams_need_admin.each do |team| %>
+            <%= team.name %>
+            <input type="radio" name="team" value="<%= team.id %>">
           <% end %>
-       </div>
+          <button type="submit" value="Approve">Approve</button>
+        </form>
+      <% end %>
+      <button><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete %></button><br><br>
     <% end %>
   <% end %>
 <% end %>
