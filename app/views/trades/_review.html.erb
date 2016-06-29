@@ -1,0 +1,18 @@
+<h4> Trades to Review </h4>
+<table>
+  <thead>
+    <tr>
+      <td><b> Team </b> </td>
+      <td><b> Date Requested</b> </td>
+      <td> </td>
+    </tr>
+  </thead>
+  <% @reviewabletrades.each do |trade| %>
+    <tr>
+      <td> <%=trade.proposing_team.name %> </td>
+      <td> <%=trade.created_at.strftime('%m/%d/%y') %></td>
+      <td> <%=link_to 'Review Trade', edit_trade_path(trade) %> </td>
+      <% end %>
+    </tr>
+</table>
+

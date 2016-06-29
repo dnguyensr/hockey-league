@@ -1,21 +1,31 @@
 <%= javascript_include_tag params[:controller] %>
 
-
 <div id="primary_color" style="display:none;"><%= @team.primary_color %></div>
 <div id="secondary_color" style="display:none;"><%= @team.secondary_color %></div>
 
-<h1><%= @team.name  %></h1>
+<% if team_admin_signed_in?  %>
+  <% if current_team_admin.id == @team.team_admin_id %>
+    <h2>Open Trades</h2>
+    <section id="first_section">
+      <div>
+      <%= render partial: 'trades/review' %>
+      <%= render partial: 'trades/proposed' %>
+      </div>
+    </section>
+  <% end %>
+<% end %>
+
 <h2>Recent Posts</h2>
 <section id="first_section">
   <div class='blog'>
-
   <%= render partial: 'posts/recent' %>
   </div>
 </section>
+
 <h2>Recent Games</h2>
 <section id="second_section">
   <div class='blog'>
-
     <%= render partial: 'games/schedule' %>
   </div>
 </section>
+
