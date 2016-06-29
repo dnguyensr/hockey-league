@@ -7,6 +7,11 @@ class LeaguesController < ApplicationController
     @leagues = League.all
     @posts = Post.last(10)
     @games = Game.all
+    if params[:approved] == "false"
+      @teamadmins = TeamAdmin.find_by_approved(false)
+    else
+      @teamadmins = TeamAdmin.all
+    end
   end
 
   # GET /leagues/1
