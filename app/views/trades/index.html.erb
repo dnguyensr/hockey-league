@@ -30,5 +30,6 @@
     </tbody>
   </table>
 </section>
-
-<h2><a href="/trades/new">Create New Trade</a></h2>
+<% if team_admin_signed_in? %>
+  <h2><a href="/trades/new">Create New Trade</a></h2>
+<% end %>

@@ -1,5 +1,6 @@
 class TradesController < ApplicationController
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_team_admin!, except: [:index]
 
   # GET /trades
   # GET /trades.json
