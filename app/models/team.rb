@@ -6,4 +6,7 @@ class Team < ActiveRecord::Base
   has_many   :trades
   has_many   :games
 
+  def teamcity
+    self.city + " " + self.name
+  end
 end

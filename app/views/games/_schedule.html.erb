@@ -3,15 +3,14 @@
     <tr>
       <th>Away Team</th>
       <th>Home Team</th>
-      <th>Game Date</th>
-      <th>Game Time</th>
+      <th>Date</th>
+      <th>Time</th>
     </tr>
   </thead>
 <% @games.each do |game| %>
         <tr>
           <td><%= game.away_team.city %> <%= game.away_team.name %></td>
-          <td>at</td>
-          <td><%= game.home_team.city %> <%= game.home_team.name%></td>
+          <td>at <%= game.home_team.city %> <%= game.home_team.name%></td>
           <td><%= game.date_time.strftime('%m/%d/%y') %></td>
           <td><%= game.date_time.strftime('%H:%M') %></td>
           <td><%= link_to 'Game Info', game %></td>
