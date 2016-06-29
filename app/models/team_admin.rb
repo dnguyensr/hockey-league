@@ -21,4 +21,8 @@ class TeamAdmin < ActiveRecord::Base
       super
     end
   end
+
+  def teamadmin_teamid
+    self.teams[0].id
+  end
 end
