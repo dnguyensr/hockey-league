@@ -1,0 +1,9 @@
+h1 Extra Form
+= simple_form_for @trade do |form|
+  strong Proposing Team
+  = simple_fields_for :proposing_team, @trade.trade_players.build do |fields|
+    = fields.association :player, collection: @trade.proposing_team.players, as: :check_boxes, label_method: :first_name, value_method: :id
+  strong Accepting Team
+  = simple_fields_for :accepting_team, @trade.trade_players.build do |fields|
+    = fields.association :player, collection: @trade.accepting_team.players, as: :check_boxes, label_method: :first_name, value_method: :id
+  = form.submit :'Add Players'

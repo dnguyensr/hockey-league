@@ -1,46 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1> Potential Trade </h1>
 <p>
-  <strong>Proposing team:</strong>
-  <p> Players </p>
-  <%= form_tag("/trade_players", method: "post") do %>
-    <%= @trade.proposing_team.name %>
-    <% @trade.proposing_team.players.each do |player|%> <br>
-    <%= check_box_tag(player.id) %>
-    <%= player.first_name %> <%=player.last_name %>
-    <% end %>
-    <br>
-    <%= submit_tag("Add Players") %>
-  <% end %>
-
-  <%= simple_form_for(@trade.trade_players.build) do |f| %>
-    <%= f.association :player, collection: @trade.proposing_team.players, as: :check_boxes, label_method: :first_name, value_method: :id  %>
-    <%= f.submit :'Add Players' %>
-  <% end %>
-
-  <%= simple_form_for(@trade.trade_players.build) do |f| %>
-    <%= f.association :player, collection: @trade.accepting_team.players, as: :check_boxes, label_method: :first_name, value_method: :id  %>
-    <%= f.submit :'Add Players' %>
-  <% end %>
-
-  <div>
-    <%= render partial: 'trade_players/form' %>
-  </div>
-</p>
-<p>
-  <strong>Accepting team:</strong>
-  <%= @trade.accepting_team.name %>
-  <p> Players </p>
-  <%= @trade.accepting_team.name %>
-  <% @trade.accepting_team.players.each do |player|  %><br>
-  <%= check_box_tag(player.id) %>
-  <%= player.first_name %> <%=player.last_name %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Accepted:</strong>
-  <%= @trade.accepted %>
+  <%= render 'extra_form' %>
 </p>
 
 

@@ -45,7 +45,11 @@ class TradesController < ApplicationController
   # PATCH/PUT /trades/1.json
   def update
     respond_to do |format|
-      if @trade.update(trade_params)
+      @trade.accepting_team_players.build(#something)
+      @trade.proposing_team_players.build(#something else)
+      # @trade.trade_players.build(player: players.first, current_team: @trade.proposing_team)
+      # @trade.trade_players.build(player: players.first, current_team: @trade.accepting_team)
+      if @trade.save
         format.html { redirect_to @trade, notice: 'Trade was successfully updated.' }
         format.json { render :show, status: :ok, location: @trade }
       else
@@ -74,5 +78,13 @@ class TradesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trade_params
       params.require(:trade).permit(:proposing_team_id, :accepting_team_id, :accepted)
+    end
+
+    def proposing_team_params
+      params.require(:proposing_team)
+    end
+
+    def accepting_team_params
+      params.require(:accepting_team)
     end
 end
