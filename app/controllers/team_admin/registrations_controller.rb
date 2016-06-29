@@ -1,7 +1,7 @@
 class TeamAdmin::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_sign_up_params, only: [:create]
   before_filter :configure_account_update_params, only: [:update]
-  before_filter :authenticate_league_admin!, only: [:new, :create]
+  before_filter :authenticate_league_admin!, only: [:new, :create, :edit]
 
   # GET /resource/sign_up
   def new
@@ -16,12 +16,16 @@ class TeamAdmin::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   # def edit
   #   super
+  #   admin = TeamAdmin.find(params[:id])
+  #   admin.approved = true
+  #   admin.save
   # end
 
+
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
   # def destroy
