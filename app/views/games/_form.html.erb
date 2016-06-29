@@ -1,8 +1,7 @@
-<%= form_for(@game) do |f| %>
+<%= simple_form_for @game do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
       <ul>
       <% @game.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,19 +10,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :away_team_id %><br>
-    <%= f.number_field :away_team_id %>
-  </div>
-  <div class="field">
-    <%= f.label :home_team_id %><br>
-    <%= f.number_field :home_team_id %>
-  </div>
-  <div class="field">
-    <%= f.label :date_time %><br>
-    <%= f.datetime_select :date_time %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.association :home_team %>
+  <%= f.association :away_team %>
+  <%= f.input :date_time %>
+  <%= f.submit 'Create Game' %>
+
 <% end %>
+s
