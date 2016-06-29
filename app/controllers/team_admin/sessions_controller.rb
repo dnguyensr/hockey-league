@@ -8,7 +8,9 @@ class TeamAdmin::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   # def create
-  #   super
+
+  #   # super
+  #   redirect_to '/teams'
   # end
 
   # DELETE /resource/sign_out
