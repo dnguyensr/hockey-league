@@ -26,10 +26,21 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+
+    # else
+    #   redirect_to new_post_path
+    # end
+
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+      if (Team.find(@post.team_id)).team_admin == current_team_admin
+        @post.author_id = current_team_admin.id
+        if @post.save
+          format.html { redirect_to @post, notice: 'Post was successfully created.' }
+          format.json { render :show, status: :created, location: @post }
+        else
+          format.html { render :new }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
