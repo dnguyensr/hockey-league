@@ -98,6 +98,24 @@ Team.create({
   secondary_color:Faker::Color.color_name
   })
 
+Team.create({
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
 positions = %w(RW LW C D G)
 
 30.times do

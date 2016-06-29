@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.select{|team| !team.team_admin_id.nil? }
   end
 
   # GET /teams/1
