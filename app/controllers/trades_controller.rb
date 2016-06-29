@@ -77,17 +77,13 @@ class TradesController < ApplicationController
     end
 
     def update_trade_proposing_team (params, trade)
-      array = params[:player_id]
-      new_params = array.delete_if{|x| x == ""}
-      new_params.each do |param|
+      params.each do |param|
         trade.proposing_team_players.build(player: Player.find(param.to_i) )
       end
     end
 
     def update_trade_accepting_team (params, trade)
-      array = params[:player_id]
-      new_params = array.delete_if{|x| x == ""}
-      new_params.each do |param|
+      params.each do |param|
         trade.accepting_team_players.build(player: Player.find(param.to_i) )
       end
     end
@@ -98,10 +94,13 @@ class TradesController < ApplicationController
     end
 
     def proposing_team_params
-      params.require(:proposing_team)
+      proposing_team = params.require(:proposing_team)
+      proposing_team_players = proposing_team[:player_id].delete_if{|x| x == ""}
     end
 
     def accepting_team_params
-      params.require(:accepting_team)
+      accepting_team = params.require(:accepting_team)
+      accepting_team_players = accepting_team[:player_id].delete_if{|x| x == ""}
     end
+
 end
