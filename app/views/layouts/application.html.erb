@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HockeyLeague</title>
+  <title>NHL</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
 <div id='inside'>
   <section class="header">
     <a href="/"><img src="/assets/05_NHL_Shield.svg.png" alt="logo"/></a>
-    <a href="/" style="text-decoration: none;"><h1>NHL</h1></a>
+    <a href="/"><h1>NHL</h1></a>
   </section>
   <nav>
     <a href='/'>Home</a>
@@ -19,9 +19,6 @@
     <a href='/games'>Schedule</a>
     <% if league_admin_signed_in? %>
       <%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %>
-    <% else %>
-      <%= link_to('Login', new_league_admin_session_path)  %>
-      <%= link_to('Register', new_league_admin_registration_path) %>
     <% end %>
   </nav>
 <%= yield %>

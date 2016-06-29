@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_team_admin!, except: [:show, :index]
+  before_action :authenticate_team_admin!, only: [:edit, :update]
+  before_action :authenticate_league_admin, except: [:index, :show, :edit, :update]
 
   # GET /teams
   # GET /teams.json
@@ -22,6 +23,10 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+  end
+
+  def league_team_edit
+
   end
 
   # POST /teams

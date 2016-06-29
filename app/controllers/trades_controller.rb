@@ -10,11 +10,14 @@ class TradesController < ApplicationController
   # GET /trades/1
   # GET /trades/1.json
   def show
+    @tradeplayer = TradePlayer.new
+    @trade = Trade.find(params[:id])
   end
 
   # GET /trades/new
   def new
     @trade = Trade.new
+    @team = Team.new
   end
 
   # GET /trades/1/edit
@@ -24,6 +27,7 @@ class TradesController < ApplicationController
   # POST /trades
   # POST /trades.json
   def create
+    puts "#{params}"
     @trade = Trade.new(trade_params)
 
     respond_to do |format|

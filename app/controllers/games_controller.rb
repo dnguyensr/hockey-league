@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_team_admin!, except: [:show, :index]
+  before_action :authenticate_league_admin!, except: [:show, :index]
 
   # GET /games
   # GET /games.json
@@ -72,6 +72,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:team_game_id, :game_date, :game_time)
+      params.require(:game).permit(:away_team_id, :home_team_id, :date_time)
     end
 end

@@ -1,13 +1,12 @@
+<h1>All Teams</h1>
 
 <div id="inside">
   <p id="notice"><%= notice %></p>
 
-  <h1>Listing Teams</h1>
-
   <table>
     <thead>
       <tr>
-        <th>Team admin</th>
+        <th>Admin</th>
         <th>Name</th>
         <th>League</th>
         <th>City</th>
@@ -22,15 +21,15 @@
       <% @teams.each do |team| %>
         <tr>
           <td><%= team.team_admin_id %></td>
-          <td><%= team.name %></td>
+          <td><a href="/teams/<%= team.id %>"><%= team.name %></a></td>
           <td><%= team.league_id %></td>
           <td><%= team.city %></td>
           <td><%= team.mascot %></td>
           <td><%= team.primary_color.capitalize %></td>
           <td><%= team.secondary_color.capitalize %></td>
+          <td><%= link_to 'Show', team %></td>
 
           <% if team_admin_signed_in? %>
-            <td><%= link_to 'Show', team %></td>
             <td><%= link_to 'Edit', edit_team_path(team) %></td>
             <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>

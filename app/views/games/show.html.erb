@@ -1,23 +1,23 @@
 <div id="inside">
   <section id="game_section">
     <div class="inner_container"></div>
-      <div><strong>Game starts at <%= @game.date_time.hour %>:<%= @game.date_time.min %> on <%= @game.date_time.month %>/<%= @game.date_time.day %>/<%= @game.date_time.year %></strong></div>
+      <h2><strong><%= @game.date_time.strftime('%m/%d/%y') %> @ <%= @game.date_time.strftime('%H:%M') %></strong></h2>
       <div class="linebreak"></div>
 
       <div class="left">
-        <div><strong>Away Team</strong></div>
-        <div><%= @game.away_team.city %> <%= @game.away_team.name %></div>
+        <h2><strong>Away Team</strong></h2>
+        <h3><%= @game.away_team.city %> <%= @game.away_team.name %></h3>
       </div>
-      <span>vs</span>
+      <h3 id='vs'>vs</h3>
 
       <div class="right">
-        <div><strong>Home Team</strong></div>
-        <div><%= @game.home_team.city%> <%= @game.home_team.name%></div>
+        <h2><strong>Home Team</strong></h2>
+        <h3><%= @game.home_team.city%> <%= @game.home_team.name %></h3>
       </div>
     </div>
   </section>
-  <%= link_to 'Edit', edit_game_path(@game) %> |
-  <%= link_to 'Back', games_path %>
+  <% if league_admin_signed_in? %>
+    <%= link_to 'Edit', edit_game_path(@game) %> |
+    <%= link_to 'Back', games_path %>
+  <% end %>
 </div>
-
-
