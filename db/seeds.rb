@@ -58,6 +58,27 @@ TeamAdmin.create({
   password:     "password",
   })
 
+TeamAdmin.create({
+  first_name:   Faker::Name.first_name,
+  last_name:    Faker::Name.last_name,
+  email:        "no@no.com",
+  password:     "password",
+  })
+
+TeamAdmin.create({
+  first_name:   Faker::Name.first_name,
+  last_name:    Faker::Name.last_name,
+  email:        "no@no.com",
+  password:     "password",
+  })
+
+TeamAdmin.create({
+  first_name:   Faker::Name.first_name,
+  last_name:    Faker::Name.last_name,
+  email:        "no@no.com",
+  password:     "password",
+  })
+
 Team.create({
   team_admin_id:  1,
   name:           Faker::StarWars.specie + 's',
@@ -90,6 +111,33 @@ Team.create({
 
 Team.create({
   team_admin_id:  4,
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
+  league_id:      1,
+  name:           Faker::StarWars.specie + 's',
+  city:           Faker::Address.city,
+  mascot:         Faker::StarWars.specie,
+  primary_color:  Faker::Color.color_name,
+  secondary_color:Faker::Color.color_name
+  })
+
+Team.create({
   league_id:      1,
   name:           Faker::StarWars.specie + 's',
   city:           Faker::Address.city,
