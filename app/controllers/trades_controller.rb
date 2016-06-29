@@ -1,10 +1,11 @@
 class TradesController < ApplicationController
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_team_admin!, except: [:index]
 
   # GET /trades
   # GET /trades.json
   def index
-    @trades = Trade.all
+    @trades = Trade.where(accepted: true)
   end
 
   # GET /trades/1
