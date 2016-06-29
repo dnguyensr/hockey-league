@@ -1,7 +1,7 @@
 <div id="inside">
   <section id="game_section">
     <div class="inner_container"></div>
-      <h2><strong><%= @game.date_time.month %>/<%= @game.date_time.day %>/<%= @game.date_time.year %> @ <%= @game.date_time.hour %>:<%= @game.date_time.min %></strong></h2>
+      <h2><strong><%= @game.date_time.strftime('%m/%d/%y') %> @ <%= @game.date_time.strftime('%H:%M') %></strong></h2>
       <div class="linebreak"></div>
 
       <div class="left">
