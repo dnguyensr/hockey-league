@@ -4,32 +4,20 @@
 <% end %>
 
 <section id="first_section">
-  <table>
-    <thead>
-      <tr>
-        <th colspan="3">Recent Trades</th>
-      </tr>
-    </thead>
-
-    <tbody>
       <% @trades.each do |trade| %>
-        <tr>
-          <td><strong><%= trade.proposing_team.name %></strong><br>
-            <%trade.trade_players.each do |trade_player|  %>
-               <%if trade_player.player.team == trade.proposing_team%>
-                  <%= trade_player.player.full_name %>,
-              <% end %>
+        <div>Trade made on <%= trade.updated_at.strftime('%m/%d/%y') %></div>
+        <strong><%= trade.proposing_team.name %>: </strong>
+          <%trade.trade_players.each do |trade_player|  %>
+             <%if trade_player.player.team == trade.proposing_team%>
+                <%= trade_player.player.full_name %>,
             <% end %>
-          </td>
-          <td><strong><%= trade.accepting_team.name %></strong><br>
-             <%trade.trade_players.each do |trade_player|  %>
-                 <%if trade_player.player.team == trade.proposing_team%>
-                    <%= trade_player.player.full_name %>,
-                <% end %>
-              <% end %>
-          </td>
-        </tr>
+          <% end %><br>
+        <strong><%= trade.accepting_team.name %>: </strong>
+         <%trade.trade_players.each do |trade_player|  %>
+             <%if trade_player.player.team == trade.accepting_team%>
+                <%= trade_player.player.full_name %>,
+            <% end %>
+          <% end %>
       <% end %>
-    </tbody>
-  </table>
+      <div class="linebreak"></div>
 </section>
