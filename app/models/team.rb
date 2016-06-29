@@ -9,4 +9,8 @@ class Team < ActiveRecord::Base
   def teamcity
     self.city + " " + self.name
   end
+
+  def readable_date
+    self.created_at.strftime("%B %d, %Y")
+  end
 end

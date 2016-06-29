@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 LeagueAdmin.create({
-  first_name:   Faker::Name.first_name,
-  last_name:    Faker::Name.last_name,
-  email:        Faker::Internet.email,
+  first_name:   'Kevin',
+  last_name:    'Solorio',
+  email:        'ksolo@dbc.com',
   password:     "password",
   })
 
@@ -23,28 +23,39 @@ TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
   email:        "abc@abc.com",
-  password:     "password"
+  password:     "password",
+  approved:     true
   })
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
   email:        "123@123.com",
-  password:     "password"
+  password:     "password",
+  approved:     true
   })
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
   email:        "xyz@xyz.com",
-  password:     "password"
+  password:     "password",
+  approved:     true
   })
 
 TeamAdmin.create({
   first_name:   Faker::Name.first_name,
   last_name:    Faker::Name.last_name,
   email:        "yes@yes.com",
-  password:     "password"
+  password:     "password",
+  approved:     true
+  })
+
+TeamAdmin.create({
+  first_name:   Faker::Name.first_name,
+  last_name:    Faker::Name.last_name,
+  email:        "no@no.com",
+  password:     "password",
   })
 
 Team.create({
@@ -103,8 +114,35 @@ end
   Post.create({
     title:        Faker::StarWars.quote,
     content:      Faker::StarWars.quote,
-    author_id:    rand(1..TeamAdmin.count),
-    team_id:      rand(1..Team.count)
+    author_id:    1,
+    team_id:      1
+    })
+end
+
+10.times do
+  Post.create({
+    title:        Faker::StarWars.quote,
+    content:      Faker::StarWars.quote,
+    author_id:    2,
+    team_id:      2
+    })
+end
+
+10.times do
+  Post.create({
+    title:        Faker::StarWars.quote,
+    content:      Faker::StarWars.quote,
+    author_id:    3,
+    team_id:      3
+    })
+end
+
+10.times do
+  Post.create({
+    title:        Faker::StarWars.quote,
+    content:      Faker::StarWars.quote,
+    author_id:    4,
+    team_id:      4
     })
 end
 

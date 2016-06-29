@@ -6,4 +6,8 @@ class Player < ActiveRecord::Base
   def full_name
     self.first_name + " " + self.last_name
   end
+
+  def readable_date
+    self.created_at.strftime("%B %d, %Y")
+  end
 end

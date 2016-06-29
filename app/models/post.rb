@@ -6,4 +6,8 @@ class Post < ActiveRecord::Base
   def self.filter_by_team(team_id)
     where(team: team_id).order("created_at DESC").limit(5)
   end
+
+  def readable_date
+    self.created_at.strftime("%B %d, %Y")
+  end
 end

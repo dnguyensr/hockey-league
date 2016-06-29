@@ -5,25 +5,23 @@
 <section id="first_section">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= @post.content %>
-  </p>
-
-  <p>
+  <p style="float:left;">
     <strong>Author:</strong>
-    <%= @post.author_id %>
-  </p>
+    <%= @post.author.full_name %>
+    <strong>Created At:</strong>
+    <%= @post.readable_date %>
+  </p><br><br>
 
-  <p>
-    <strong>Team:</strong>
-    <%= @post.team_id %>
-  </p>
+  <u style="font-size:35px;">
+    <strong style="float:left;">Team:</strong>
+    <%= @post.team.name %>
+  </u><br><br>
 
-  <button><%= link_to 'Back', team_path(team) %></button>
+  <strong style="float:left;">Title:</strong>
+  <%= @post.title %><br><br>
+
+  <strong style="float:left;">Content:</strong>
+  <%= @post.content %>
+
 </section>
+<button><%= link_to 'Back', team_path(team) %></button>
