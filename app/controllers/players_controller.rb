@@ -34,6 +34,8 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
+    team = Team.where(id: current_team_admin.id)
+    @player.team_id = team[0].id
 
     respond_to do |format|
       if @player.save
@@ -78,6 +80,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:first_name, :last_name, :jersey_number, :team_id)
+      params.require(:player).permit(:first_name, :last_name, :position, :jersey_number, :team_id)
     end
 end

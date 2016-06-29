@@ -87,10 +87,13 @@ Team.create({
   secondary_color:Faker::Color.color_name
   })
 
+positions = %w(RW LW C D G)
+
 30.times do
   Player.create({
     first_name:     Faker::Name.first_name,
     last_name:      Faker::Name.last_name,
+    position:       positions[rand(0..4)],
     jersey_number:  rand(0..99).to_s,
     team_id:        rand(1..Team.count)
     })
