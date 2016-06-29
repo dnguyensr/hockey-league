@@ -17,7 +17,7 @@
           <td><button><%= link_to 'Game Info', game %></button></td>
           <% if league_admin_signed_in? %>
             <td><button><%= link_to 'Edit', edit_game_path(game) %></button></td>
-            <td><button><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+            <td><button><%= link_to 'Remove', game, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
           <% end %>
         </tr>
       <% end %>
