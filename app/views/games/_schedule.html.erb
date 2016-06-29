@@ -12,7 +12,7 @@
           <td><%= game.away_team.city %> <%= game.away_team.name %></td>
           <td>at <%= game.home_team.city %> <%= game.home_team.name%></td>
           <td><%= game.date_time.strftime('%m/%d/%y') %></td>
-          <td><%= game.date_time.strftime('%H:%M') %></td>
+          <td><%= game.date_time.strftime('%l:%M %p %Z') %></td>
           <td><button><%= link_to 'Game Info', game %></button></td>
           <% if league_admin_signed_in? %>
             <td><button><%= link_to 'Edit', edit_game_path(game) %></button></td>

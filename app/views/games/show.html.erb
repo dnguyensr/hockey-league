@@ -4,19 +4,23 @@
 <div id="containinside">
   <section id="game_section">
     <div class="inner_container"></div>
-      <h2><strong><%= @game.date_time.strftime('%m/%d/%y') %> @ <%= @game.date_time.strftime('%H:%M') %></strong></h2>
+      <h2><strong><%= @game.date_time.strftime('%m/%d/%y') %> @ <%= @game.date_time.strftime('%l:%M %p %Z') %></strong></h2>
       <div class="linebreak"></div>
 
       <div class="left">
         <h2><strong>Away Team</strong></h2>
         <h3><%= @game.away_team.city %> <%= @game.away_team.name %></h3>
+        <h3> <%= @game.away_team_score if @game.away_team_score != nil %></h3>
       </div>
       <h3 id='vs'>vs</h3>
 
       <div class="right">
         <h2><strong>Home Team</strong></h2>
         <h3><%= @game.home_team.city%> <%= @game.home_team.name %></h3>
+        <h3> <%= @game.home_team_score if @game.home_team_score != nil %></h3>
       </div>
+      <div class="linebreak"></div>
+      <h3><%= @game.winner %> </h3>
     </div>
   </section>
 <button style="float:left;"><%= link_to 'Back', games_path %></button>
