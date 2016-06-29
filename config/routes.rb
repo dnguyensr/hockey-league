@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   patch "team_admins/:id/edit" => "leagues#activate", :as => "approve_team_manager"
 
+  delete "team_admins/:id" => "leagues#deactivate", :as => "disapprove_team_manager"
+
   devise_scope :league_admin do
     get '/sign_in'    => 'league_admin/sessions#new', :as => :new_league_admin_session
     match '/sign_in'  => 'league_admin/sessions#new', :as => :new_session, via: 'get'

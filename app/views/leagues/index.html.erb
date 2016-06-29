@@ -13,6 +13,8 @@
               <td><%= teamadmin.full_name %></td>
               <td><%= link_to 'Approve', approve_team_manager_path(teamadmin), method: :patch
               %></td>
+              <td><%= link_to 'Deny', disapprove_team_manager_path(teamadmin), method: :delete
+              %></td>
             <% end %>
           </tr>
       </table>
