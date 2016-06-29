@@ -7,7 +7,7 @@ before_action :one_league_admin_registered?, only: [:new, :create]
     if ((LeagueAdmin.count == 1) && (league_admin_signed_in?))
       redirect_to root_path
     elsif LeagueAdmin.count == 1
-      redirect_to new_league_admin_session_path
+      redirect_to new_team_admin_registration_path
     end
   end
 
