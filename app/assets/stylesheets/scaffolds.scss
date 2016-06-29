@@ -13,13 +13,14 @@ a {
   color: #000;
   text-decoration: none;
   font-family: 'Oxygen', sans-serif;
+  font-weight: bold;
 
   &:visited {
     color: #37474F;
   }
 
   &:hover {
-    color: #455A64;
+    color: #607D8B;
     text-decoration: none;
   }
 }
