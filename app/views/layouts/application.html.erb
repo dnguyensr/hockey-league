@@ -17,6 +17,7 @@
     <a href='/'>Home</a>
     <a href='/teams'>Teams</a>
     <a href='/games'>Schedule</a>
+    <a href='/players'>Roster</a>
     <% if league_admin_signed_in? || team_admin_signed_in? %>
       <%= link_to('Logout', destroy_league_admin_session_path, :method => :delete) %>
     <% else %>
