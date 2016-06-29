@@ -1,0 +1,6 @@
+section.header
+  = link_to image_tag("05_NHL_Shield.svg.png", alt: :logo), root_path
+  - if @team.present?
+    h1 = link_to @team.name, team_path(@team)
+  - else
+    h1 = link_to 'NHL', root_path
