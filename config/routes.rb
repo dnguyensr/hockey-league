@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     get '/' => redirect('/team_admin'), as: 'root'
   end
 
-  resources :trades, :except => [ :index, :edit, :update, :delete ]
+  devise_for :team_admins, :skip => [ :registrations, :passwords ], controllers: { sessions: 'team_admin/sessions', registrations: 'team_admin/registrations' }
+  resources :trades, :except => [ :index, :edit, :delete ]
   resources :posts, :except => [ :index ]
   resources :games
   resources :players
