@@ -21,4 +21,8 @@ class TeamAdmin < ActiveRecord::Base
       super
     end
   end
+
+  def readable_date
+    self.created_at.strftime("%B %d, %Y")
+  end
 end
