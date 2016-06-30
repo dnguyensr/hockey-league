@@ -1,9 +1,9 @@
 <h1>All Trades</h1>
+
+<section id="first_section">
 <% if team_admin_signed_in? %>
   <button id="float-right"><a href="/trades/new">Create New Trade</a></button>
 <% end %>
-
-<section id="first_section">
       <% @trades.each do |trade| %>
         <div>Trade made on <%= trade.updated_at.strftime('%m/%d/%y') %></div>
         <strong><%= trade.proposing_team.name %>: </strong>

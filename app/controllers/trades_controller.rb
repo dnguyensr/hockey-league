@@ -49,13 +49,21 @@ class TradesController < ApplicationController
 
   def accept
     @trade = Trade.find(params[:trade_id])
-    @proposing_team = @trade.proposing_team
-    @accepting_team = @trade.accepting_team
-    update_team_players(proposing_team_players(@trade.trade_players, @proposing_team), @accepting_team)
-    update_team_players(accepting_team_players(@trade.trade_players, @accepting_team), @proposing_team)
+    proposing_team = @trade.proposing_team
+    accepting_team = @trade.accepting_team
 
-    @trade.accepted = true
-    @trade.save
+    proposed = team_players(@trade.trade_players, proposing_team).map{|trade| trade.player }
+    acceptor = team_players(@trade.trade_players, accepting_team).map{|trade| trade.player }
+
+    proposed = proposed.each{|player| Player.find(player.team_id).update(team_id: accepting_team.id)}
+    acceptor = acceptor.each{|player| Player.find(player.team_id).update(team_id: proposing_team.id)}
+
+    # proposedtraded = (proposing_team.players - proposed) + acceptor
+    # acceptedtraded = (accepting_team.players - acceptor) + proposed
+
+    # Team.find(proposing_team.id).players = proposedtraded
+    # Team.find(accepting_team.id).players = acceptedtraded
+
     redirect_to '/'
   end
   # PATCH/PUT /trades/1
@@ -90,22 +98,12 @@ class TradesController < ApplicationController
       @trade = Trade.find(params[:id])
     end
 
-    def proposing_team_players(trade_players, proposing_team)
-      trade_players.map do |trade_player|
-        if trade_player.player.team == proposing_team
+    def team_players(trade_players, team)
+      trade_players.select do |trade_player|
+        if trade_player.player.team == team
           trade_player.player
         end
       end
-      trade_players.compact
-    end
-
-    def accepting_team_players(trade_players, accepting_team)
-      trade_players.map do |trade_player|
-        if trade_player.player.team == accepting_team
-          trade_player.player
-        end
-      end
-      trade_players.compact
     end
 
     def update_team_players(players, new_team)
